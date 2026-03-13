@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "author": "Shyp Byte Team",
+    "date": "15/01/2024",
+    "readTime": "5 min read",
+    "title": "The Future of International Shipping: Trends to Watch in 2024",
+    "excerpt": "Explore the latest trends shaping the international shipping industry and how technology is revolutionizing global logistics.",
+    "tags": ["International", "Trends", "2024"],
+    "img": "/assets/images/blog-1.jpg"
+  },
+  {
+    "id": 2,
+    "author": "Sarah Johnson",
+    "date": "12/01/2024",
+    "readTime": "7 min read",
+    "title": "How to Optimize Your Supply Chain for Maximum Efficiency",
+    "excerpt": "Learn practical strategies to streamline your supply chain operations and reduce costs while improving delivery times.",
+    "tags": ["Supply Chain", "Optimization", "Efficiency"],
+    "img": "/assets/images/blog-2.jpg"
+  },
+  {
+    "id": 3,
+    "author": "Mike Chen",
+    "date": "10/01/2024",
+    "readTime": "6 min read",
+    "title": "E-commerce Shipping Best Practices for Small Businesses",
+    "excerpt": "Discover essential shipping strategies that can help small e-commerce businesses compete with larger competitors.",
+    "tags": ["E-commerce", "Small Business", "Best Practices"],
+    "img": "/assets/images/blog-3.jpg"
+  },
+  {
+    "id": 4,
+    "author": "Emily Rodriguez",
+    "date": "08/01/2024",
+    "readTime": "8 min read",
+    "title": "Understanding Customs Regulations: A Complete Guide",
+    "excerpt": "Navigate the complex world of customs regulations with our comprehensive guide to international shipping compliance.",
+    "tags": ["Customs", "Regulations", "Compliance"],
+    "img": "/assets/images/blog-4.jpg"
+  },
+  {
+    "id": 5,
+    "author": "David Kim",
+    "date": "05/01/2024",
+    "readTime": "6 min read",
+    "title": "AI and Machine Learning in Logistics: What's Next?",
+    "excerpt": "Explore how artificial intelligence and machine learning are transforming the logistics industry and what to expect next.",
+    "tags": ["AI", "Machine Learning", "Innovation"],
+    "img": "/assets/images/blog-5.jpg"
+  },
+  {
+    "id": 6,
+    "author": "Lisa Wang",
+    "date": "03/01/2024",
+    "readTime": "4 min read",
+    "title": "10 Tips for Reducing Shipping Costs in 2024",
+    "excerpt": "Practical tips and strategies to help businesses reduce their shipping costs without compromising on service quality.",
+    "tags": ["Cost Reduction", "Shipping", "Tips"],
+    "img": "/assets/images/blog-6.jpg"
+  }
+]

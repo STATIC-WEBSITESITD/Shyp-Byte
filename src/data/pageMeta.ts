@@ -1,0 +1,83 @@
+const BASE_URL = "https://shypbyte.com";
+
+export interface PageMetaConfig {
+  title: string;
+  description: string;
+  keywords: string;
+  canonical: string;
+}
+
+export const pageMeta: Record<string, PageMetaConfig> = {
+  "/": {
+    title: "Best International Courier Service in Mumbai | Shyp Byte",
+    description:
+      "Shyp Byte transforms international courier service with smart technology. We provide seamless worldwide shipping and door to door delivery to 220+ countries making international shipping effortless.",
+    keywords:
+      "international courier service, courier service Mumbai, worldwide shipping, door to door delivery, international shipping, Shyp Byte",
+    canonical: BASE_URL + "/",
+  },
+  "/about": {
+    title: "About Us | Shyp Byte - International Courier & Shipping",
+    description:
+      "Learn about Shyp Byte's mission, vision, and values. We're building the future of global logistics with one team and complete control over international shipping.",
+    keywords:
+      "about Shyp Byte, international shipping company, global logistics, courier company Mumbai",
+    canonical: BASE_URL + "/about",
+  },
+  "/tracking": {
+    title: "Track Your Shipment | Shyp Byte",
+    description:
+      "Track your international shipment in real time. Enter your AWB, forwarding, or reference number to get real-time delivery status updates.",
+    keywords:
+      "track shipment, shipment tracking, AWB tracking, international courier tracking, Shyp Byte",
+    canonical: BASE_URL + "/tracking",
+  },
+  "/product/ecommerce-business": {
+    title: "E-Commerce Business | Amazon, Flipkart, Shopify, Etsy | Shyp Byte",
+    description:
+      "Ecommerce shipping made simple. Integrate with Amazon, Flipkart, Shopify, Etsy. Doorstep pickup, real-time tracking, affordable international delivery for marketplace sellers.",
+    keywords:
+      "ecommerce shipping, Amazon Flipkart Shopify Etsy, marketplace shipping, international courier ecommerce, Shyp Byte",
+    canonical: BASE_URL + "/product/ecommerce-business",
+  },
+  "/product/d2c-brand": {
+    title: "D2C Brand | Global Delivery Solutions | Shyp Byte",
+    description:
+      "Global delivery solutions for D2C brands. Shyp Byte manages logistics, customs, documentation and cross-border shipping so your brand can grow worldwide.",
+    keywords:
+      "D2C shipping, direct to consumer courier, cross-border D2C, international courier for brands, Shyp Byte",
+    canonical: BASE_URL + "/product/d2c-brand",
+  },
+  "/product/individual-customer": {
+    title: "Individual Customer | Global Parcel Shipping | Shyp Byte",
+    description:
+      "Global parcel shipping for documents, gifts, and personal parcels. Real-time tracking, 24×7 support, doorstep pickup. Send parcels worldwide with Shyp Byte.",
+    keywords:
+      "global parcel shipping, send parcel abroad, personal courier, gift shipping international, document shipping, Shyp Byte",
+    canonical: BASE_URL + "/product/individual-customer",
+  },
+  "/product/b2b-shippers": {
+    title: "B2B Shippers | Trusted Global Shipping for Businesses | Shyp Byte",
+    description:
+      "Reliable B2B courier service for businesses. Door to door delivery, same day delivery, real-time tracking, and dedicated support. Ship to 200+ destinations with Shyp Byte.",
+    keywords:
+      "B2B courier service, bulk logistics, door to door delivery, same day delivery, enterprise shipping, Shyp Byte",
+    canonical: BASE_URL + "/product/b2b-shippers",
+  },
+  "/blogs": {
+    title: "Blog | Shipping & Logistics Insights | Shyp Byte",
+    description:
+      "Explore insights on international shipping, supply chain optimization, e-commerce shipping, customs regulations, and logistics trends.",
+    keywords:
+      "shipping blog, logistics blog, international shipping tips, supply chain, e-commerce shipping",
+    canonical: BASE_URL + "/blogs",
+  },
+  "/contact": {
+    title: "Contact Us | Shyp Byte - Get In Touch",
+    description:
+      "Contact Shyp Byte for international shipping enquiries. Reach us via email, phone, or our enquiry form. We typically respond within 24 hours.",
+    keywords:
+      "contact Shyp Byte, international courier contact, shipping enquiry Mumbai",
+    canonical: BASE_URL + "/contact",
+  },
+};

@@ -1,0 +1,23 @@
+[
+  { "label": "Home", "to": "/" },
+  { "label": "About Us", "to": "/about" },
+  {
+    "label": "Our Products",
+    "children": [
+      { "label": "E-Commerce Business", "to": "/product/ecommerce-business" },
+      { "label": "D2C Brand", "to": "/product/d2c-brand" },
+      { "label": "Individual Customer", "to": "/product/individual-customer" },
+      { "label": "B2B Shippers", "to": "/product/b2b-shippers" }
+    ]
+  },
+  { "label": "Tracking", "to": "/tracking" },
+  { "label": "Blogs", "to": "/blogs" },
+  { "label": "Contact Us", "to": "/contact" },
+  {
+    "label": "Log In",
+    "children": [
+      { "label": "Admin Login", "to": "https://admin.shypbyte.com/" },
+      { "label": "Customer Login", "to": "https://online.shypbyte.com/" }
+    ]
+  }
+]

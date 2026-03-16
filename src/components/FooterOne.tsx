@@ -57,6 +57,8 @@ const FooterOne: FC = () => {
               <li><Link to='/tracking' className={linkClass}>Tracking</Link></li>
               <li><Link to='/blogs' className={linkClass}>Blogs</Link></li>
               <li><Link to='/contact' className={linkClass}>Contact Us</Link></li>
+              <li><Link to='/privacy-policy' className={linkClass}>Privacy Policy</Link></li>
+              <li><Link to='/shipping-policy' className={linkClass}>Shipping &amp; Terms</Link></li>
             </ul>
           </div>
           <div className='col-xl-2 col-lg-2 col-sm-6'>

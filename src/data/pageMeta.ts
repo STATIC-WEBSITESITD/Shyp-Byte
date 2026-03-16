@@ -80,4 +80,20 @@ export const pageMeta: Record<string, PageMetaConfig> = {
       "contact Shyp Byte, international courier contact, shipping enquiry Mumbai",
     canonical: BASE_URL + "/contact",
   },
+  "/privacy-policy": {
+    title: "Privacy Policy | Shyp Byte",
+    description:
+      "ShypByte Logistics Pvt. Ltd. privacy policy. How we collect, use and protect your information on www.shypbyte.com. We never share or sell your data.",
+    keywords:
+      "privacy policy, Shyp Byte, data protection, cookie policy, ShypByte Logistics",
+    canonical: BASE_URL + "/privacy-policy",
+  },
+  "/shipping-policy": {
+    title: "Shipping Policy & Terms of Use | Shyp Byte",
+    description:
+      "Shyp Byte shipping policy, refund policy and terms of use. Domestic and international shipping duration, liability and conditions of carriage.",
+    keywords:
+      "shipping policy, refund policy, terms of use, Shyp Byte, conditions of carriage",
+    canonical: BASE_URL + "/shipping-policy",
+  },
 };

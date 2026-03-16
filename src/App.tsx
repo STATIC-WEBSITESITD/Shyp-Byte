@@ -14,6 +14,8 @@ const D2CBrandPage = lazy(() => import("./pages/D2CBrandPage"));
 const ECommerceBusinessPage = lazy(() => import("./pages/ECommerceBusinessPage"));
 const IndividualCustomerPage = lazy(() => import("./pages/IndividualCustomerPage"));
 const TrackPageOne = lazy(() => import("./pages/TrackPageOne"));
+const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
+const ShippingPolicyPage = lazy(() => import("./pages/ShippingPolicyPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route path='/product/d2c-brand' element={<D2CBrandPage />} />
           <Route path='/product/individual-customer' element={<IndividualCustomerPage />} />
           <Route path='/product/b2b-shippers' element={<B2BShippersPage />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
+          <Route path='/shipping-policy' element={<ShippingPolicyPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         </Suspense>

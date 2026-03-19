@@ -1,21 +1,21 @@
 import type { FC } from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const BannerOne: FC = () => {
 
-  const [activeTab, setActiveTab] = useState("Daily");
-  interface TabItem {
-    id: string;
-    label: string;
-    amount: number;
-  }
+  // const [activeTab, setActiveTab] = useState("Daily");
+  // interface TabItem {
+  //   id: string;
+  //   label: string;
+  //   amount: number;
+  // }
 
-  const tabs: TabItem[] = [
-    { id: "Daily", label: "Daily", amount: 4820 },
-    { id: "Weekly", label: "Weekly", amount: 24450 },
-    { id: "Monthly", label: "Monthly", amount: 98500 },
-  ];
+  // const tabs: TabItem[] = [
+  //   { id: "Daily", label: "Daily", amount: 4820 },
+  //   { id: "Weekly", label: "Weekly", amount: 24450 },
+  //   { id: "Monthly", label: "Monthly", amount: 98500 },
+  // ];
 
   return (
     <section className='banner tw-py-100-px overflow-hidden section-bg-three position-relative'>
@@ -161,13 +161,13 @@ const BannerOne: FC = () => {
                 />
                 <div>
                   <div className='tab-content'>
-                    {tabs.map((tab) => (
+                    {/* {tabs.map((tab) => (
                       <div
                         key={tab.id}
                         className={`tab-pane fade ${
                           activeTab === tab.id ? "show active" : ""
                         }`}
-                      >
+                      > */}
                         <span className='tw-text-sm text-neutral-500 tw-mb-1 text-uppercase'>
                           Automation-Driven Logistics
                         </span>
@@ -177,8 +177,8 @@ const BannerOne: FC = () => {
                             : tab.amount}
                           +
                         </h5> */}
-                      </div>
-                    ))}
+                      {/* </div>
+                    ))} */}
                   </div>
                   {/* <ul className='nav nav-pills common-tab d-flex align-items-center tw-gap-205'>
                     {tabs.map((tab) => (

@@ -121,7 +121,7 @@ const BannerOne: FC = () => {
                 />
               </div>
               <div className='d-none d-lg-block bg-white tw-rounded-3xl tw-p-6 max-w-218-px position-absolute tw-end-0 top-0 w-100 tw--mt-8-px tw--me-8-px common-shadow-two z-1'>
-                <div className='d-inline-flex align-items-center tw-gap-1 bg-green tw-py-05 tw-px-3 rounded-pill position-absolute top-0 tw-end-0 tw--mt-12-px tw--me-12-px'>
+                {/* <div className='d-inline-flex align-items-center tw-gap-1 bg-green tw-py-05 tw-px-3 rounded-pill position-absolute top-0 tw-end-0 tw--mt-12-px tw--me-12-px'>
                   <span className='text-white fw-bold tw-text-sm'>4.9</span>
                   <span className='text-white d-flex'>
                     <img
@@ -129,19 +129,19 @@ const BannerOne: FC = () => {
                       alt=''
                     />
                   </span>
-                </div>
-                <img
+                </div> */}
+                {/* <img
                   src='/assets/images/icons/ratings.svg'
                   alt=''
-                />
-                <div className='tw-mt-3 d-flex align-items-center justify-content-between max-w-154-px'>
+                /> */}
+                <div className='tw-mt-3 d-flex align-items-center justify-content-between max-w-154-px mt-0'>
                   <span className='tw-text-lg text-heading fw-semibold'>
-                    Trust pilot
+                    Secure & Trusted Shipping Partner
                   </span>
-                  <img
+                  {/* <img
                     src='/assets/images/icons/verified-icon.svg'
                     alt=''
-                  />
+                  /> */}
                 </div>
               </div>
               <div
@@ -150,8 +150,8 @@ const BannerOne: FC = () => {
                 data-aos-anchor-placement='top-bottom'
                 data-aos-duration={900}
               >
-                <h2 className='text-white counter'>8+</h2>
-                <span className='text-white'>Years in Global Shipping</span>
+                <h2 className='text-white counter'>99%</h2>
+                <span className='text-white'>On-Time Delivery Rate</span>
               </div>
               <div className='d-none d-lg-flex bg-white-7 tw-py-6 tw-px-7 tw-rounded-2xl border border-white bg-blur-20 position-absolute bottom-0 tw-start-0 z-1 align-items-center tw-gap-8 common-shadow-two' data-aos='fade-up' data-aos-anchor-placement='top-bottom' data-aos-duration={800}>
                 <img
@@ -169,18 +169,18 @@ const BannerOne: FC = () => {
                         }`}
                       >
                         <span className='tw-text-sm text-neutral-500 tw-mb-1 text-uppercase'>
-                          Shipments delivered
+                          Automation-Driven Logistics
                         </span>
-                        <h5 className='tw-mb-6 counter'>
+                        {/* <h5 className='tw-mb-6 counter'>
                           {tab.amount >= 1000
                             ? `${(tab.amount / 1000).toFixed(1)}K`
                             : tab.amount}
                           +
-                        </h5>
+                        </h5> */}
                       </div>
                     ))}
                   </div>
-                  <ul className='nav nav-pills common-tab d-flex align-items-center tw-gap-205'>
+                  {/* <ul className='nav nav-pills common-tab d-flex align-items-center tw-gap-205'>
                     {tabs.map((tab) => (
                       <li className='nav-item' key={tab.id}>
                         <button
@@ -194,7 +194,7 @@ const BannerOne: FC = () => {
                         </button>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
                 {/* <div>
                   <img

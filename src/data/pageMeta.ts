@@ -32,37 +32,37 @@ export const pageMeta: Record<string, PageMetaConfig> = {
       "track shipment, shipment tracking, AWB tracking, international courier tracking, Shyp Byte",
     canonical: BASE_URL + "/tracking",
   },
-  "/product/ecommerce-business": {
+  "/offer/ecommerce-business": {
     title: "E-Commerce Business | Amazon, Flipkart, Shopify, Etsy | Shyp Byte",
     description:
       "Ecommerce shipping made simple. Integrate with Amazon, Flipkart, Shopify, Etsy. Doorstep pickup, real-time tracking, affordable international delivery for marketplace sellers.",
     keywords:
       "ecommerce shipping, Amazon Flipkart Shopify Etsy, marketplace shipping, international courier ecommerce, Shyp Byte",
-    canonical: BASE_URL + "/product/ecommerce-business",
+    canonical: BASE_URL + "/offer/ecommerce-business",
   },
-  "/product/d2c-brand": {
+  "/offer/d2c-brand": {
     title: "D2C Brand | Global Delivery Solutions | Shyp Byte",
     description:
       "Global delivery solutions for D2C brands. Shyp Byte manages logistics, customs, documentation and cross-border shipping so your brand can grow worldwide.",
     keywords:
       "D2C shipping, direct to consumer courier, cross-border D2C, international courier for brands, Shyp Byte",
-    canonical: BASE_URL + "/product/d2c-brand",
+    canonical: BASE_URL + "/offer/d2c-brand",
   },
-  "/product/individual-customer": {
+  "/offer/individual-customer": {
     title: "Individual Customer | Global Parcel Shipping | Shyp Byte",
     description:
       "Global parcel shipping for documents, gifts, and personal parcels. Real-time tracking, 24×7 support, doorstep pickup. Send parcels worldwide with Shyp Byte.",
     keywords:
       "global parcel shipping, send parcel abroad, personal courier, gift shipping international, document shipping, Shyp Byte",
-    canonical: BASE_URL + "/product/individual-customer",
+    canonical: BASE_URL + "/offer/individual-customer",
   },
-  "/product/b2b-shippers": {
+  "/offer/b2b-shippers": {
     title: "B2B Shippers | Trusted Global Shipping for Businesses | Shyp Byte",
     description:
       "Reliable B2B courier service for businesses. Door to door delivery, same day delivery, real-time tracking, and dedicated support. Ship to 200+ destinations with Shyp Byte.",
     keywords:
       "B2B courier service, bulk logistics, door to door delivery, same day delivery, enterprise shipping, Shyp Byte",
-    canonical: BASE_URL + "/product/b2b-shippers",
+    canonical: BASE_URL + "/offer/b2b-shippers",
   },
   "/blogs": {
     title: "Blog | Shipping & Logistics Insights | Shyp Byte",

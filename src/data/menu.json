@@ -2,12 +2,12 @@
   { "label": "Home", "to": "/" },
   { "label": "About Us", "to": "/about" },
   {
-    "label": "Our Products",
+    "label": "We Offer",
     "children": [
-      { "label": "E-Commerce Business", "to": "/product/ecommerce-business" },
-      { "label": "D2C Brand", "to": "/product/d2c-brand" },
-      { "label": "Individual Customer", "to": "/product/individual-customer" },
-      { "label": "B2B Shippers", "to": "/product/b2b-shippers" }
+      { "label": "E-Commerce Business", "to": "/offer/ecommerce-business" },
+      { "label": "D2C Brand", "to": "/offer/d2c-brand" },
+      { "label": "Individual Customer", "to": "/offer/individual-customer" },
+      { "label": "B2B Shippers", "to": "/offer/b2b-shippers" }
     ]
   },
   { "label": "Tracking", "to": "/tracking" },

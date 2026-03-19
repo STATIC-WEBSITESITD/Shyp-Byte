@@ -63,13 +63,13 @@ const FooterOne: FC = () => {
           </div>
           <div className='col-xl-2 col-lg-2 col-sm-6'>
             <h6 className='fw-semibold text-white tw-mb-5 tw-text-sm tw-uppercase tw-tracking-wider' style={{ opacity: 1 }}>
-              Our Products
+              We Offer
             </h6>
             <ul className='list-unstyled d-flex flex-column tw-gap-2 mb-0'>
-              <li><Link to='/product/ecommerce-business' className={linkClass}>E-Commerce Business</Link></li>
-              <li><Link to='/product/d2c-brand' className={linkClass}>D2C Brand</Link></li>
-              <li><Link to='/product/individual-customer' className={linkClass}>Individual Customer</Link></li>
-              <li><Link to='/product/b2b-shippers' className={linkClass}>B2B Shippers</Link></li>
+              <li><Link to='/offer/ecommerce-business' className={linkClass}>E-Commerce Business</Link></li>
+              <li><Link to='/offer/d2c-brand' className={linkClass}>D2C Brand</Link></li>
+              <li><Link to='/offer/individual-customer' className={linkClass}>Individual Customer</Link></li>
+              <li><Link to='/offer/b2b-shippers' className={linkClass}>B2B Shippers</Link></li>
             </ul>
           </div>
           <div className='col-xl-4 col-lg-4 col-sm-6'>

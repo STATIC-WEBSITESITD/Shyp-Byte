@@ -33,11 +33,11 @@ function App() {
           <Route path='/blogs' element={<BlogPageOne />} />
           <Route path='/contact' element={<ContactPageOne />} />
           <Route path='/tracking' element={<TrackPageOne />} />
-          <Route path='/product' element={<Navigate to='/product/ecommerce-business' replace />} />
-          <Route path='/product/ecommerce-business' element={<ECommerceBusinessPage />} />
-          <Route path='/product/d2c-brand' element={<D2CBrandPage />} />
-          <Route path='/product/individual-customer' element={<IndividualCustomerPage />} />
-          <Route path='/product/b2b-shippers' element={<B2BShippersPage />} />
+          <Route path='/offer' element={<Navigate to='/offer/ecommerce-business' replace />} />
+          <Route path='/offer/ecommerce-business' element={<ECommerceBusinessPage />} />
+          <Route path='/offer/d2c-brand' element={<D2CBrandPage />} />
+          <Route path='/offer/individual-customer' element={<IndividualCustomerPage />} />
+          <Route path='/offer/b2b-shippers' element={<B2BShippersPage />} />
           <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
           <Route path='/shipping-policy' element={<ShippingPolicyPage />} />
           <Route path='*' element={<ErrorPage />} />

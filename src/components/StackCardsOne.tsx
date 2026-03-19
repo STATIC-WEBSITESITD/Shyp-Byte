@@ -16,7 +16,7 @@ const stackCardsData: StackCard[] = [
     title: "E-Commerce Business",
     description:
       "Built for online sellers on Shopify, marketplaces, and independent stores. Manage orders, generate labels, and track shipments easily through a single ecommerce shipping platform. Scale your store with tools that integrate with your sales channels.",
-    ctaTo: "/product/ecommerce-business",
+    ctaTo: "/offer/ecommerce-business",
     image: "/assets/images/ecommerce-business.jpg",
   },
   {
@@ -25,7 +25,7 @@ const stackCardsData: StackCard[] = [
     title: "D2C Brand",
     description:
       "Ship directly from your warehouse to customers across the world. Shypbyte helps D2C brands simplify international shipping, fulfillment, and delivery so you can focus on growing your brand. Get transparent rates and end-to-end visibility for every order.",
-    ctaTo: "/product/d2c-brand",
+    ctaTo: "/offer/d2c-brand",
     image: "/assets/images/d2c-brand.jpg",
   },
   {
@@ -34,7 +34,7 @@ const stackCardsData: StackCard[] = [
     title: "Individual Customer",
     description:
       "Sending a package to family or friends abroad? Shypbyte makes international courier services for individuals simple with easy booking, doorstep pickup, and reliable delivery worldwide. No complex paperwork—just book, pack, and we handle the rest.",
-    ctaTo: "/product/individual-customer",
+    ctaTo: "/offer/individual-customer",
     image: "/assets/images/individual-customers.jpg",
   },
   {
@@ -43,7 +43,7 @@ const stackCardsData: StackCard[] = [
     title: "B2B Shippers",
     description:
       "Reliable logistics solutions for exporters, manufacturers, and growing businesses shipping internationally. Shypbyte supports bulk shipments and global supply chains with dependable courier partners. Optimize costs and delivery times with dedicated support.",
-    ctaTo: "/product/b2b-shippers",
+    ctaTo: "/offer/b2b-shippers",
     image: "/assets/images/b2b-shippers.jpg",
   },
 ];
@@ -54,10 +54,10 @@ const StackCardsOne: FC = () => {
       <div className='container'>
         <div className='tw-mb-8 text-center'>
           <span className='tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block'>
-            Our Products
+            We Offer
           </span>
           <h3 className='splitTextStyleOne fw-light tw-leading-104 text-center max-w-672-px mx-auto tw-mt-3'>
-            <span className='d-inline-block'>Shipping Products</span>
+            <span className='d-inline-block'>Shipping Solutions</span>
             <span className='d-inline-block'>&nbsp;</span>
             <span className='d-inline-block'>For Every</span>
             <span className='d-inline-block'>&nbsp;</span>

@@ -10,6 +10,7 @@ const AboutPageOne = lazy(() => import("./pages/AboutPageOne"));
 const BlogPageOne = lazy(() => import("./pages/BlogPageOne"));
 const ContactPageOne = lazy(() => import("./pages/ContactPageOne"));
 const B2BShippersPage = lazy(() => import("./pages/B2BShippersPage"));
+const PerishableCourierPage = lazy(() => import("./pages/PerishableCourierPage"));
 const D2CBrandPage = lazy(() => import("./pages/D2CBrandPage"));
 const ECommerceBusinessPage = lazy(() => import("./pages/ECommerceBusinessPage"));
 const IndividualCustomerPage = lazy(() => import("./pages/IndividualCustomerPage"));
@@ -38,6 +39,7 @@ function App() {
           <Route path='/offer/d2c-brand' element={<D2CBrandPage />} />
           <Route path='/offer/individual-customer' element={<IndividualCustomerPage />} />
           <Route path='/offer/b2b-shippers' element={<B2BShippersPage />} />
+          <Route path='/offer/perishable-courier' element={<PerishableCourierPage />} />
           <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
           <Route path='/shipping-policy' element={<ShippingPolicyPage />} />
           <Route path='*' element={<ErrorPage />} />

@@ -7,7 +7,8 @@
       { "label": "E-Commerce Business", "to": "/offer/ecommerce-business" },
       { "label": "D2C Brand", "to": "/offer/d2c-brand" },
       { "label": "Individual Customer", "to": "/offer/individual-customer" },
-      { "label": "B2B Shippers", "to": "/offer/b2b-shippers" }
+      { "label": "B2B Shippers", "to": "/offer/b2b-shippers" },
+      { "label": "Perishable Courier", "to": "/offer/perishable-courier" }
     ]
   },
   { "label": "Tracking", "to": "/tracking" },

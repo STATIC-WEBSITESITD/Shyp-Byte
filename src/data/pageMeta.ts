@@ -64,6 +64,14 @@ export const pageMeta: Record<string, PageMetaConfig> = {
       "B2B courier service, bulk logistics, door to door delivery, same day delivery, enterprise shipping, Shyp Byte",
     canonical: BASE_URL + "/offer/b2b-shippers",
   },
+  "/offer/perishable-courier": {
+    title: "Perishable Courier | Airport to Doorstep Cold Chain | Shyp Byte",
+    description:
+      "Temperature-safe perishable courier from airport cargo to customer. Seafood, pharma, flowers, frozen food—express pickup, insulated packaging, real-time tracking, pan-India delivery.",
+    keywords:
+      "perishable courier, cold chain logistics, airport cargo delivery, temperature controlled shipping, frozen food courier, Shyp Byte",
+    canonical: BASE_URL + "/offer/perishable-courier",
+  },
   "/blogs": {
     title: "Blog | Shipping & Logistics Insights | Shyp Byte",
     description:

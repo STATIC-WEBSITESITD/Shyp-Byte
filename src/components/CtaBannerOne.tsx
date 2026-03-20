@@ -23,7 +23,7 @@ const CtaBannerOne: FC = () => {
           </p>
           <div className='tw-mt-10'>
             <Link
-              to='/'
+              to='/contact'
               className='hover-black hover--translate-y-1 active--translate-y-scale-9 btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-56-px tw-py-5 fw-semibold rounded-pill'
               data-block='button'
             >

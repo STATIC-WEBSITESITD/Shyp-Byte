@@ -8,32 +8,35 @@ import FooterOne from "../components/FooterOne";
 import ReactSelectField, { type SelectOption } from "../components/ReactSelectField";
 
 const senderTypes = [
-  { value: "", label: "Please select" },
-  { value: "individual", label: "Individual" },
-  { value: "business", label: "Business / Company" },
-  { value: "importer-exporter", label: "Importer / Exporter" },
-  { value: "restaurant-hotel", label: "Restaurant / Hotel" },
-  { value: "other", label: "Other" },
+  { value: "", label: "Please Select" },
+  { value: "Farmer", label: "Farmer" },
+  { value: "Exporter", label: "Exporter" },
+  { value: "Importer", label: "Importer" },
+  { value: "Wholesaler", label: "Wholesaler" },
+  { value: "Distributor", label: "Distributor" },
+  { value: "Online Seller", label: "Online Seller (D2C)" },
+  { value: "Restaurant", label: "Restaurant / Cloud Kitchen" },
+  { value: "Pharma", label: "Pharmaceutical Company" },
+  { value: "Florist", label: "Florist" },
+  { value: "Other", label: "Other" },
 ];
 
 const weightOptions = [
-  { value: "", label: "Please select" },
-  { value: "under-5", label: "Under 5 kg" },
-  { value: "5-20", label: "5 kg – 20 kg" },
-  { value: "20-50", label: "20 kg – 50 kg" },
-  { value: "50-100", label: "50 kg – 100 kg" },
-  { value: "100-plus", label: "100 kg+" },
+  { value: "", label: "Please Select" },
+  { value: "200-300", label: "200 – 300 KG" },
+  { value: "300-500", label: "300 – 500 KG" },
+  { value: "500+", label: "500+ KG" },
 ];
 
 const goodsOptions = [
-  { id: "fruits-veg", label: "Fruits & vegetables" },
-  { id: "seafood", label: "Seafood / fish" },
-  { id: "meat", label: "Meat (fresh / frozen)" },
-  { id: "dairy", label: "Dairy products" },
-  { id: "frozen", label: "Frozen food" },
-  { id: "bakery", label: "Bakery / cakes / chocolates" },
-  { id: "flowers", label: "Flowers / plants" },
-  { id: "pharma", label: "Medicines / vaccines" },
+  { id: "fruits-veg", label: "Fruits & Vegetables" },
+  { id: "seafood", label: "Seafood / Fish" },
+  { id: "meat", label: "Meat (Fresh/Frozen)" },
+  { id: "dairy", label: "Dairy Products" },
+  { id: "frozen", label: "Frozen Food" },
+  { id: "bakery", label: "Bakery / Cakes / Chocolates" },
+  { id: "flowers", label: "Flowers / Plants" },
+  { id: "pharma", label: "Medicines / Vaccines" },
   { id: "other", label: "Other" },
 ];
 

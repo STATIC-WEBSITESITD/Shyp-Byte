@@ -383,7 +383,7 @@ const PerishableCourierPage: FC = () => {
               Different industries rely on us to move temperature-sensitive shipments safely and on time.
             </p>
           </div>
-          <div className='row g-4'>
+          <div className='row justify-content-center g-4'>
             {whoWeServe.map((card) => (
               <div key={card.title} className='col-md-6 col-xl-4'>
                 <div className='h-100 tw-p-6 tw-rounded-2xl bg-white border border-neutral-200 shadow-sm'>

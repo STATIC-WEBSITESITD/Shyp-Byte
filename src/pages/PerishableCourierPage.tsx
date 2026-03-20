@@ -5,6 +5,7 @@ import TopHeaderOne from "../components/TopHeaderOne";
 import HeaderOne from "../components/HeaderOne";
 import CtaBannerOne from "../components/CtaBannerOne";
 import FooterOne from "../components/FooterOne";
+import ReactSelectField, { type SelectOption } from "../components/ReactSelectField";
 
 const senderTypes = [
   { value: "", label: "Please select" },
@@ -128,19 +129,26 @@ const PerishableCourierPage: FC = () => {
   const [mobile, setMobile] = useState("");
   const [company, setCompany] = useState("");
   const [senderType, setSenderType] = useState("");
+  const [senderTypeError, setSenderTypeError] = useState(false);
   const [weight, setWeight] = useState("");
-  const [message, setMessage] = useState("");
+  const [weightError, setWeightError] = useState(false);
   const [goods, setGoods] = useState<Record<string, boolean>>({});
   const [goodsError, setGoodsError] = useState(false);
 
-  const toggleGood = (id: string) => {
-    setGoodsError(false);
-    setGoods((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setSenderTypeError(false);
+    setWeightError(false);
     const selectedGoods = goodsOptions.filter((g) => goods[g.id]).map((g) => g.label);
+
+    if (!senderType) {
+      setSenderTypeError(true);
+      return;
+    }
+    if (!weight) {
+      setWeightError(true);
+      return;
+    }
     if (selectedGoods.length === 0) {
       setGoodsError(true);
       goodsFieldsetRef.current?.focus();
@@ -155,15 +163,15 @@ const PerishableCourierPage: FC = () => {
       senderType,
       weight,
       goods: selectedGoods,
-      message,
     });
     setName("");
     setEmail("");
     setMobile("");
     setCompany("");
     setSenderType("");
+    setSenderTypeError(false);
     setWeight("");
-    setMessage("");
+    setWeightError(false);
     setGoods({});
   };
 
@@ -178,175 +186,148 @@ const PerishableCourierPage: FC = () => {
       >
         <div className='position-absolute top-0 tw-start-0 w-100 h-100 z-0' style={{ backgroundColor: "rgba(6, 52, 61, 0.65)" }} aria-hidden />
         <div className='container max-w-1400-px position-relative z-1'>
-          <div className='row gy-4 align-items-center justify-content-center'>
-            <div className='col-lg-10 text-center'>
+          <div className='row gy-5 align-items-center justify-content-between'>
+            <div className='col-lg-6 text-start'>
               <h1 className='splitTextStyleOne fw-light tw-leading-104 text-white'>
-                <span className='d-inline-block'>Fast &amp; safe</span>
+                <span className='d-inline-block'>Fast &amp; Safe</span>
                 <span className='d-inline-block'>&nbsp;</span>
-                <span className='d-inline-block'>perishable courier</span>
+                <span className='d-inline-block'>Perishable Courier</span>
                 <span className='d-inline-block'>&nbsp;</span>
-                <span className='d-inline-block'>from airport to customer</span>
+                <span className='d-inline-block'>from Airport to Customer</span>
               </h1>
               <p className='text-white tw-text-lg fw-medium tw-mt-4 tw-opacity-95'>
                 Deliver fresh seafood, fruits, medicines, flowers, and frozen foods straight from airport cargo to your
                 customer&apos;s doorstep—with temperature-safe logistics and reliable, timely delivery.
               </p>
-              <nav className='tw-mt-4 tw-text-sm text-white' aria-label='Breadcrumb'>
-                <Link to='/' className='text-white text-decoration-none hover-underline'>
-                  Home
-                </Link>
-                <span className='tw-mx-2 tw-opacity-80'>&gt;</span>
-                <span className='tw-opacity-90'>Perishable courier</span>
-              </nav>
             </div>
-          </div>
-        </div>
-      </section>
+            <div className='col-lg-6'>
+              <div className='tw-p-7 tw-p-lg-10 tw-rounded-2xl bg-white shadow-lg border border-neutral-100'>
+                <h3 className='text-heading fw-bold tw-mb-6 text-center'>Perishable Shipment Quote</h3>
+                <form onSubmit={handleSubmit}>
+                  <div className='row g-4'>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Name</label>
+                      <input
+                        type='text'
+                        value={name}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                        className={inputClass}
+                        placeholder='Full name'
+                        required
+                      />
+                    </div>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Email</label>
+                      <input
+                        type='email'
+                        value={email}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                        className={inputClass}
+                        placeholder='you@company.com'
+                        required
+                      />
+                    </div>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Mobile number</label>
+                      <input
+                        type='tel'
+                        value={mobile}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setMobile(e.target.value)}
+                        className={inputClass}
+                        placeholder='+91 …'
+                        required
+                      />
+                    </div>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Company name</label>
+                      <input
+                        type='text'
+                        value={company}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
+                        className={inputClass}
+                        placeholder='Optional for individuals'
+                      />
+                    </div>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Type of sender</label>
+                      <ReactSelectField
+                        options={senderTypes
+                          .filter((o) => o.value)
+                          .map((o) => ({ value: o.value, label: o.label })) as SelectOption[]}
+                        value={senderType || null}
+                        onChange={(v) => setSenderType((v as string | null) ?? "")}
+                        placeholder='Please select'
+                        isClearable
+                      />
+                      {senderTypeError && (
+                        <p className='text-danger tw-text-sm tw-mb-0 mt-2' role='alert'>
+                          Please select a sender type.
+                        </p>
+                      )}
+                    </div>
+                    <div className='col-md-6'>
+                      <label className='form-label fw-semibold text-heading tw-mb-2'>Shipment weight</label>
+                      <ReactSelectField
+                        options={weightOptions
+                          .filter((o) => o.value)
+                          .map((o) => ({ value: o.value, label: o.label })) as SelectOption[]}
+                        value={weight || null}
+                        onChange={(v) => setWeight((v as string | null) ?? "")}
+                        placeholder='Please select'
+                        isClearable
+                      />
+                      {weightError && (
+                        <p className='text-danger tw-text-sm tw-mb-0 mt-2' role='alert'>
+                          Please select shipment weight.
+                        </p>
+                      )}
+                    </div>
+                    <div className='col-12'>
+                      <fieldset ref={goodsFieldsetRef} tabIndex={-1} className='border-0 p-0 m-0'>
+                        <legend className='form-label fw-semibold text-heading tw-mb-2 float-none w-auto p-0'>
+                          Type of perishable goods (select one or more)
+                        </legend>
+                        {goodsError && (
+                          <p className='text-danger tw-text-sm tw-mb-2' role='alert'>
+                            Please select at least one type of goods.
+                          </p>
+                        )}
+                        <ReactSelectField
+                          options={goodsOptions.map((g) => ({ value: g.id, label: g.label })) as SelectOption[]}
+                          value={goodsOptions.filter((g) => goods[g.id]).map((g) => g.id)}
+                          isMulti
+                          onChange={(v) => {
+                            const ids = Array.isArray(v) ? v : [];
+                            if (ids.length === 0) {
+                              setGoods({});
+                              return;
+                            }
 
-      <section id='perishable-quote' className='py-120 section-bg-one' style={{ scrollMarginTop: "100px" }}>
-        <div className='container max-w-1200-px'>
-          <div className='text-center tw-mb-10'>
-            <span className='tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block'>
-              Perishable shipment quote
-            </span>
-            <h2 className='splitTextStyleOne fw-light tw-leading-104 tw-mt-3'>
-              <span className='d-inline-block'>Tell us about</span>
-              <span className='d-inline-block'>&nbsp;</span>
-              <span className='d-inline-block fw-semibold text-main-600'>your shipment</span>
-            </h2>
-            <p className='text-neutral-500 tw-mt-4 max-w-700-px mx-auto mb-0'>
-              Share a few details and our team will respond with temperature-safe options and pricing.
-            </p>
-          </div>
-          <div
-            className='tw-p-8 tw-p-lg-10 bg-white tw-rounded-3xl shadow-sm border border-neutral-100'
-            data-aos='fade-up'
-          >
-            <form onSubmit={handleSubmit}>
-              <div className='row g-4'>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Name</label>
-                  <input
-                    type='text'
-                    value={name}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-                    className={inputClass}
-                    placeholder='Full name'
-                    required
-                  />
-                </div>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Email</label>
-                  <input
-                    type='email'
-                    value={email}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                    className={inputClass}
-                    placeholder='you@company.com'
-                    required
-                  />
-                </div>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Mobile number</label>
-                  <input
-                    type='tel'
-                    value={mobile}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setMobile(e.target.value)}
-                    className={inputClass}
-                    placeholder='+91 …'
-                    required
-                  />
-                </div>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Company name</label>
-                  <input
-                    type='text'
-                    value={company}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
-                    className={inputClass}
-                    placeholder='Optional for individuals'
-                  />
-                </div>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Type of sender</label>
-                  <select
-                    value={senderType}
-                    onChange={(e: ChangeEvent<HTMLSelectElement>) => setSenderType(e.target.value)}
-                    className={inputClass}
-                    required
-                  >
-                    {senderTypes.map((o) => (
-                      <option key={o.value || "empty"} value={o.value}>
-                        {o.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className='col-md-6'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Shipment weight</label>
-                  <select
-                    value={weight}
-                    onChange={(e: ChangeEvent<HTMLSelectElement>) => setWeight(e.target.value)}
-                    className={inputClass}
-                    required
-                  >
-                    {weightOptions.map((o) => (
-                      <option key={o.value || "w-empty"} value={o.value}>
-                        {o.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className='col-12'>
-                  <fieldset ref={goodsFieldsetRef} tabIndex={-1} className='border-0 p-0 m-0'>
-                    <legend className='form-label fw-semibold text-heading tw-mb-2 float-none w-auto p-0'>
-                      Type of perishable goods (select one or more)
-                    </legend>
-                  {goodsError && (
-                    <p className='text-danger tw-text-sm tw-mb-2' role='alert'>
-                      Please select at least one type of goods.
-                    </p>
-                  )}
-                  <div className='row g-3'>
-                    {goodsOptions.map((g) => (
-                      <div key={g.id} className='col-sm-6 col-lg-4'>
-                        <label className='d-flex align-items-center tw-gap-2 tw-p-3 tw-rounded-xl border border-neutral-200 bg-neutral-50 h-100 cursor-pointer user-select-none'>
-                          <input
-                            type='checkbox'
-                            checked={!!goods[g.id]}
-                            onChange={() => toggleGood(g.id)}
-                            className='form-check-input flex-shrink-0 tw-mt-0'
-                          />
-                          <span className='tw-text-sm text-heading fw-medium'>{g.label}</span>
-                        </label>
-                      </div>
-                    ))}
+                            const next: Record<string, boolean> = {};
+                            ids.forEach((id) => {
+                              next[id] = true;
+                            });
+                            setGoods(next);
+                          }}
+                          placeholder='Please select'
+                          isClearable
+                        />
+                      </fieldset>
+                    </div>
+                    <div className='col-12'>
+                      <button
+                        type='submit'
+                        className='hover-black hover--translate-y-1 btn btn-main hover-style-one button--stroke w-100 tw-gap-5 tw-px-8 rounded-pill tw-py-6 fw-semibold'
+                        data-block='button'
+                      >
+                        <span className='button__flair' />
+                        <span className='button__label'>Send message</span>
+                      </button>
+                    </div>
                   </div>
-                  </fieldset>
-                </div>
-                <div className='col-12'>
-                  <label className='form-label fw-semibold text-heading tw-mb-2'>Message</label>
-                  <textarea
-                    value={message}
-                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
-                    className={inputClass}
-                    rows={4}
-                    placeholder='Airport, destination, timeline, temperature needs…'
-                    style={{ resize: "none" }}
-                  />
-                </div>
-                <div className='col-12'>
-                  <button
-                    type='submit'
-                    className='hover-black hover--translate-y-1 btn btn-main hover-style-one button--stroke tw-gap-5 tw-px-8 rounded-pill tw-py-6 fw-semibold'
-                    data-block='button'
-                  >
-                    <span className='button__flair' />
-                    <span className='button__label'>Send message</span>
-                  </button>
-                </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </section>

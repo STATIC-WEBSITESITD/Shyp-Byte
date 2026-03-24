@@ -17,6 +17,8 @@ const IndividualCustomerPage = lazy(() => import("./pages/IndividualCustomerPage
 const TrackPageOne = lazy(() => import("./pages/TrackPageOne"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const ShippingPolicyPage = lazy(() => import("./pages/ShippingPolicyPage"));
+const ThankyouPerishableCourierPage = lazy(() => import("./pages/ThankyouPerishableCourierPage"));
+const ThankyouEnquiryPage = lazy(() => import("./pages/ThankyouEnquiryPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
           <Route path='/offer/individual-customer' element={<IndividualCustomerPage />} />
           <Route path='/offer/b2b-shippers' element={<B2BShippersPage />} />
           <Route path='/offer/perishable-courier' element={<PerishableCourierPage />} />
+          <Route path='/thankyou-perishable-courier' element={<ThankyouPerishableCourierPage />} />
+          <Route path='/thankyou-enquiry' element={<ThankyouEnquiryPage />} />
           <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
           <Route path='/shipping-policy' element={<ShippingPolicyPage />} />
           <Route path='*' element={<ErrorPage />} />

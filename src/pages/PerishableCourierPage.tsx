@@ -1,5 +1,5 @@
 import { useRef, useState, type FC, type FormEvent, type ChangeEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import TopHeaderOne from "../components/TopHeaderOne";
 import HeaderOne from "../components/HeaderOne";
@@ -126,6 +126,7 @@ const inputClass =
   "form-control tw-py-4 tw-px-5 tw-rounded-xl border border-neutral-200 focus-border-main-600 tw-text-base text-heading fw-medium bg-white";
 
 const PerishableCourierPage: FC = () => {
+  const navigate = useNavigate();
   const goodsFieldsetRef = useRef<HTMLFieldSetElement>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -137,9 +138,15 @@ const PerishableCourierPage: FC = () => {
   const [weightError, setWeightError] = useState(false);
   const [goods, setGoods] = useState<Record<string, boolean>>({});
   const [goodsError, setGoodsError] = useState(false);
+  const [result, setResult] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setResult("Sending...");
+    setIsSuccess(false);
+    setIsSubmitting(true);
     setSenderTypeError(false);
     setWeightError(false);
     const selectedGoods = goodsOptions.filter((g) => goods[g.id]).map((g) => g.label);
@@ -155,27 +162,70 @@ const PerishableCourierPage: FC = () => {
     if (selectedGoods.length === 0) {
       setGoodsError(true);
       goodsFieldsetRef.current?.focus();
+      setIsSubmitting(false);
       return;
     }
+
     setGoodsError(false);
-    console.log("Perishable quote:", {
-      name,
-      email,
-      mobile,
-      company,
-      senderType,
-      weight,
-      goods: selectedGoods,
-    });
-    setName("");
-    setEmail("");
-    setMobile("");
-    setCompany("");
-    setSenderType("");
-    setSenderTypeError(false);
-    setWeight("");
-    setWeightError(false);
-    setGoods({});
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
+    formData.append("from_name", "Shyp Byte Perishable Courier Form");
+    formData.append("subject", `New Perishable Enquiry from ${name} | ${senderType}`);
+    formData.append("replyto", email);
+    formData.append("sender_type", senderType);
+    formData.append("shipment_weight", weight);
+    formData.append("goods", selectedGoods.join(", "));
+    formData.append(
+      "autoresponse",
+      `Hello ${name},
+
+Thank you for your perishable shipment enquiry with Shyp Byte.
+We have received your request and our team will get back to you shortly.
+
+If you have any urgent questions, feel free to reply to this email anytime.
+
+Best regards,
+Shyp Byte`
+    );
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setResult("Form Submitted Successfully");
+        setIsSuccess(true);
+        setName("");
+        setEmail("");
+        setMobile("");
+        setCompany("");
+        setSenderType("");
+        setSenderTypeError(false);
+        setWeight("");
+        setWeightError(false);
+        setGoods({});
+        window.alert("Form Submitted Successfully");
+        navigate("/thankyou-perishable-courier");
+      } else {
+        setResult(data.message || "Error: Unable to submit form");
+        setIsSuccess(false);
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setResult(error.message);
+      } else {
+        setResult("Error: Unable to submit form");
+      }
+      setIsSuccess(false);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -212,6 +262,7 @@ const PerishableCourierPage: FC = () => {
                       <label className='form-label fw-semibold text-heading tw-mb-2'>Name</label>
                       <input
                         type='text'
+                        name='name'
                         value={name}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                         className={inputClass}
@@ -223,6 +274,7 @@ const PerishableCourierPage: FC = () => {
                       <label className='form-label fw-semibold text-heading tw-mb-2'>Email</label>
                       <input
                         type='email'
+                        name='email'
                         value={email}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         className={inputClass}
@@ -234,6 +286,7 @@ const PerishableCourierPage: FC = () => {
                       <label className='form-label fw-semibold text-heading tw-mb-2'>Mobile number</label>
                       <input
                         type='tel'
+                        name='mobile'
                         value={mobile}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => setMobile(e.target.value)}
                         className={inputClass}
@@ -245,6 +298,7 @@ const PerishableCourierPage: FC = () => {
                       <label className='form-label fw-semibold text-heading tw-mb-2'>Company name</label>
                       <input
                         type='text'
+                        name='company'
                         value={company}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
                         className={inputClass}
@@ -320,13 +374,21 @@ const PerishableCourierPage: FC = () => {
                     <div className='col-12'>
                       <button
                         type='submit'
+                        disabled={isSubmitting}
                         className='hover-black hover--translate-y-1 btn btn-main hover-style-one button--stroke w-100 tw-gap-5 tw-px-8 rounded-pill tw-py-6 fw-semibold'
                         data-block='button'
                       >
                         <span className='button__flair' />
-                        <span className='button__label'>Send message</span>
+                        <span className='button__label'>{isSubmitting ? "Sending..." : "Send message"}</span>
                       </button>
                     </div>
+                    {result && (
+                      <div className='col-12'>
+                        <p className={`tw-text-sm tw-mt-2 tw-mb-0 ${isSuccess ? "text-success" : "text-danger"}`}>
+                          {result}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </form>
               </div>

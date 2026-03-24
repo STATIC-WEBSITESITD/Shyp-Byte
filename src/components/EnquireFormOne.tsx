@@ -1,4 +1,5 @@
 import { useState, type FC, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -20,7 +21,11 @@ const inputClass =
   "form-control tw-py-4 tw-px-5 tw-rounded-xl border border-neutral-200 focus-border-main-600 tw-text-base text-heading fw-medium bg-white";
 
 const EnquireFormOne: FC = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState<FormData>(initialForm);
+  const [result, setResult] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,10 +33,48 @@ const EnquireFormOne: FC = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Enquiry submitted:", form);
-    setForm(initialForm);
+    setResult("Sending...");
+    setIsSuccess(false);
+    setIsSubmitting(true);
+
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+    formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
+    formData.append("from_name", "Shyp Byte Enquiry Form");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setResult("Form Submitted Successfully");
+        setIsSuccess(true);
+        formElement.reset();
+        setForm(initialForm);
+        window.alert("Form Submitted Successfully");
+        navigate("/thankyou-enquiry");
+      } else {
+        setResult(data.message || "Error: Unable to submit form");
+        setIsSuccess(false);
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setResult(error.message);
+      } else {
+        setResult("Error: Unable to submit form");
+      }
+      setIsSuccess(false);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -149,13 +192,23 @@ const EnquireFormOne: FC = () => {
                 <div className='col-12'>
                   <button
                     type='submit'
+                    disabled={isSubmitting}
                     className='w-100 hover-black hover--translate-y-1 active--translate-y-scale-9 btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-56-px tw-py-5 fw-semibold rounded-pill'
                     data-block='button'
                   >
                     <span className='button__flair' />
-                    <span className='button__label'>Send Enquiry</span>
+                    <span className='button__label'>
+                      {isSubmitting ? "Sending..." : "Send Enquiry"}
+                    </span>
                   </button>
                 </div>
+                {result && (
+                  <div className='col-12'>
+                    <p className={`tw-text-sm tw-mt-2 tw-mb-0 ${isSuccess ? "text-success" : "text-danger"}`}>
+                      {result}
+                    </p>
+                  </div>
+                )}
               </div>
             </form>
           </div>

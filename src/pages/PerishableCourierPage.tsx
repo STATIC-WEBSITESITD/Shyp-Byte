@@ -175,18 +175,6 @@ const PerishableCourierPage: FC = () => {
     formData.append("sender_type", senderType);
     formData.append("shipment_weight", weight);
     formData.append("goods", selectedGoods.join(", "));
-    formData.append(
-      "autoresponse",
-      `Hello ${name},
-
-Thank you for your perishable shipment enquiry with Shyp Byte.
-We have received your request and our team will get back to you shortly.
-
-If you have any urgent questions, feel free to reply to this email anytime.
-
-Best regards,
-Shyp Byte`
-    );
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

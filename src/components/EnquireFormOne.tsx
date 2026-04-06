@@ -43,7 +43,6 @@ const EnquireFormOne: FC = () => {
     const formData = new FormData(formElement);
     formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
     formData.append("from_name", "Shyp Byte Enquiry Form");
-    formData.append("ccemail", "ashish@itdservices.in");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

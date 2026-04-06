@@ -170,7 +170,6 @@ const PerishableCourierPage: FC = () => {
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
     formData.append("from_name", "Shyp Byte Perishable Courier Form");
-    formData.append("ccemail", "ashish@itdservices.in");
     formData.append("subject", `New Perishable Enquiry from ${name} | ${senderType}`);
     formData.append("replyto", email);
     formData.append("sender_type", senderType);

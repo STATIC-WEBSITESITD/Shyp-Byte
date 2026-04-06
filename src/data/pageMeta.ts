@@ -104,4 +104,20 @@ export const pageMeta: Record<string, PageMetaConfig> = {
       "shipping policy, refund policy, terms of use, Shyp Byte, conditions of carriage",
     canonical: BASE_URL + "/shipping-policy",
   },
+  "/india-to-usa": {
+    title: "India to USA | Shyp Byte",
+    description:
+      "International shipping from India to the United States with Shyp Byte.",
+    keywords:
+      "India to USA shipping, courier India USA, international shipping, Shyp Byte",
+    canonical: BASE_URL + "/india-to-usa",
+  },
+  "/thankyou-india-to-usa": {
+    title: "Thank You | India to USA Enquiry | Shyp Byte",
+    description:
+      "Your India to USA shipping enquiry was received. Our team will follow up shortly.",
+    keywords:
+      "India to USA shipping, courier enquiry, thank you, Shyp Byte",
+    canonical: BASE_URL + "/thankyou-india-to-usa",
+  },
 };

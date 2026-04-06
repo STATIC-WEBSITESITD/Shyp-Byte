@@ -70,6 +70,8 @@ const FooterOne: FC = () => {
               <li><Link to='/offer/d2c-brand' className={linkClass}>D2C Brand</Link></li>
               <li><Link to='/offer/individual-customer' className={linkClass}>Individual Customer</Link></li>
               <li><Link to='/offer/b2b-shippers' className={linkClass}>B2B Shippers</Link></li>
+              <li><Link to='/offer/perishable-courier' className={linkClass}>Perishable Courier</Link></li>
+              <li><Link to='/india-to-usa' className={linkClass}>India to USA</Link></li>
             </ul>
           </div>
           <div className='col-xl-4 col-lg-4 col-sm-6'>

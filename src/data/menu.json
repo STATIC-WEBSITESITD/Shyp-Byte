@@ -8,7 +8,8 @@
       { "label": "D2C Brand", "to": "/offer/d2c-brand" },
       { "label": "Individual Customer", "to": "/offer/individual-customer" },
       { "label": "B2B Shippers", "to": "/offer/b2b-shippers" },
-      { "label": "Perishable Courier", "to": "/offer/perishable-courier" }
+      { "label": "Perishable Courier", "to": "/offer/perishable-courier" },
+      { "label": "India to USA", "to": "/india-to-usa" }
     ]
   },
   { "label": "Tracking", "to": "/tracking" },

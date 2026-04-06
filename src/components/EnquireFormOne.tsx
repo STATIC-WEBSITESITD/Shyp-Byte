@@ -43,6 +43,7 @@ const EnquireFormOne: FC = () => {
     const formData = new FormData(formElement);
     formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
     formData.append("from_name", "Shyp Byte Enquiry Form");
+    formData.append("ccemail", "ashish@itdservices.in");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -86,10 +87,7 @@ const EnquireFormOne: FC = () => {
           style={{ boxShadow: "0 10px 40px rgba(0,0,0,0.08)" }}
         >
           {/* Left: Primary colored panel */}
-          <div
-            className='col-lg-6 tw-p-10 tw-p-lg-12 d-flex flex-column justify-content-center'
-            style={{ backgroundColor: "var(--main-600)" }}
-          >
+          <div className='col-lg-6 tw-p-10 tw-p-lg-12 d-flex flex-column justify-content-center' style={{ backgroundColor: "var(--main-600)" }}>
             <div>
               <span className='tw-py-1 tw-px-705 bg-white/20 text-white tw-text-sm fw-bold rounded-pill tw-mb-4 d-inline-block' style={{ backgroundColor: "rgba(255,255,255,0.2)" }}>
                 Get In Touch

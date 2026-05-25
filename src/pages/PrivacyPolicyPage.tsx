@@ -53,7 +53,7 @@ const PrivacyPolicyPage: FC = () => {
             <div className='col-lg-10'>
               <div className='tw-prose tw-prose-lg tw-max-w-none'>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-5'>
-                  ShypByte Logistics Pvt. Ltd. (&quot;ShypByte&quot;) understands the importance of
+                  ShypByte understands the importance of
                   protecting the privacy of users of the ShypByte website www.shypbyte.com. The
                   information collected on the ShypByte website is used to market and improve the
                   services of ShypByte and its subsidiaries, to improve the content and services on

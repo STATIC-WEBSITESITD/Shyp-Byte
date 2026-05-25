@@ -83,8 +83,7 @@ const ShippingPolicyPage: FC = () => {
                 </p>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-5'>
                   The following terms and conditions govern the use of the website www.shypbyte.com
-                  (&quot;ShypByte website&quot;) of ShypByte Logistics Private Limited
-                  (&quot;ShypByte&quot;), including all sections and services available on the
+                  (&quot;ShypByte website&quot;) of ShypByte, including all sections and services available on the
                   ShypByte website. The viewing or use of this site will constitute your agreement,
                   on behalf of yourself and the entity you represent (hereinafter collectively
                   &quot;You&quot; or &quot;Your&quot;), to all of the terms and conditions provided
@@ -102,7 +101,7 @@ const ShippingPolicyPage: FC = () => {
                   services, and links on the ShypByte website.
                 </p>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-4'>
-                  &quot;ShypByte&quot; means ShypByte Logistics Pvt. Ltd. having its registered office
+                  &quot;ShypByte&quot; means ShypByte having its registered office
                   at: Unit No 48, Adarsh Ind Estate, Chakala Sahar Road, Andheri East, Mumbai, Mumbai
                   Suburban, Maharashtra - 400099.
                 </p>

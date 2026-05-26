@@ -127,7 +127,7 @@ const FooterOne: FC = () => {
         <div className='tw-pt-6 tw-pb-6' style={{ borderTop: '1px solid rgba(255,255,255,0.6)' }}>
           <div className='d-flex align-items-center justify-content-center flex-wrap tw-gap-2'>
             <p className='text-white mb-0 tw-text-sm tw-opacity-90'>
-              Copyright &copy; {new Date().getFullYear()} Shyp Byte. Powered by{" "}
+              Copyright &copy; {new Date().getFullYear()} NavalaiNex Private Limited. Powered by{" "}
               <a
                 href='https://www.itdgrowthlabs.com/'
                 target='_blank'

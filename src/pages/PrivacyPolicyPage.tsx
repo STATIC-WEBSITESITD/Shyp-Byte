@@ -53,29 +53,29 @@ const PrivacyPolicyPage: FC = () => {
             <div className='col-lg-10'>
               <div className='tw-prose tw-prose-lg tw-max-w-none'>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-5'>
-                  ShypByte understands the importance of
-                  protecting the privacy of users of the ShypByte website www.shypbyte.com. The
-                  information collected on the ShypByte website is used to market and improve the
-                  services of ShypByte and its subsidiaries, to improve the content and services on
-                  the ShypByte web site and make it easier to use and more appropriate to individual
+                  Shyp Byte understands the importance of
+                  protecting the privacy of users of the Shyp Byte website www.shypbyte.com. The
+                  information collected on the Shyp Byte website is used to market and improve the
+                  services of Shyp Byte and its subsidiaries, to improve the content and services on
+                  the Shyp Byte web site and make it easier to use and more appropriate to individual
                   users and to contact its users with updates to the web site or for other marketing
-                  purposes. ShypByte may use this information, with the users&apos; permission, for
+                  purposes. Shyp Byte may use this information, with the users&apos; permission, for
                   the above purposes.
                 </p>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-5'>
-                  ShypByte never shares any information obtained on or from the ShypByte website with
+                  Shyp Byte never shares any information obtained on or from the Shyp Byte website with
                   any other organization, and will not do so in future, unless required by law.
-                  ShypByte will not sell information obtained through the ShypByte website to any
+                  Shyp Byte will not sell information obtained through the Shyp Byte website to any
                   party or parties.
                 </p>
 
                 <h2 className='h4 fw-semibold tw-mt-6 tw-mb-3'>Information Collection and Use</h2>
                 <p className='tw-text-body tw-leading-relaxed tw-mb-5'>
-                  Certain areas of the ShypByte website, including but not limited to the sections on
+                  Certain areas of the Shyp Byte website, including but not limited to the sections on
                   &apos;tracking&apos;, &apos;service guide&apos;, &apos;franchisee&apos;, &apos;corporate
                   solutions&apos;, &apos;careers&apos; and &apos;e-solutions&apos; require registration
                   or a password for access. Information obtained from registered users of these areas
-                  may also be used for ShypByte&apos;s marketing purposes, and cookies may be used in
+                  may also be used for Shyp Byte&apos;s marketing purposes, and cookies may be used in
                   those and other areas, as is described in this privacy policy.
                 </p>
 
@@ -117,8 +117,8 @@ const PrivacyPolicyPage: FC = () => {
                 </p>
                 <p className='tw-text-body tw-leading-relaxed'>
                   <strong>Phone:</strong>{" "}
-                  <a href='tel:+917304617614' className='text-decoration-none'>
-                    +91 7304617614
+                  <a href='tel:+917208832472' className='text-decoration-none'>
+                    +91 7208832472
                   </a>
                 </p>
               </div>

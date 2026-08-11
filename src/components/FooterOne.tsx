@@ -17,7 +17,7 @@ const FooterOne: FC = () => {
       className='footer-one position-relative z-1 mt-auto overflow-hidden'
       style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #141414 50%, #111 100%)" }}
     >
-      {/* Primary color accent line */}
+      
       <div className='tw-h-1' style={{ background: "var(--main-600, #005eff)" }} aria-hidden />
       <div className='container container-two tw-pt-14 tw-pb-10'>
         <div className='row gy-5 gx-xl-5'>
@@ -101,10 +101,10 @@ const FooterOne: FC = () => {
                   <i className='ph ph-phone' />
                 </span>
                 <a
-                  href='tel:+917304617614'
+                  href='tel:+917208832472'
                   className='text-white tw-text-sm tw-opacity-90 hover-text-main-600 tw-duration-200 text-decoration-none'
                 >
-                  +91 7304617614
+                  +91 7208832472
                 </a>
               </li>
               <li className='d-flex align-items-start tw-gap-3'>
@@ -120,6 +120,26 @@ const FooterOne: FC = () => {
                 </span>
               </li>
             </ul>
+            <div className='tw-mt-6'>
+              <h6
+                className='fw-semibold text-white tw-mb-4 tw-text-sm tw-uppercase tw-tracking-wider'
+                style={{ opacity: 1 }}
+              >
+                Get the App
+              </h6>
+              <a
+                href='https://play.google.com/store/apps/details?id=com.shypbyte.customer'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='hover--translate-y-1 active--translate-y-scale-9 d-inline-block'
+              >
+                <img
+                  src='/assets/images/icons/store-two2.png'
+                  alt='Get it on Google Play'
+                  className='tw-h-10 w-auto'
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

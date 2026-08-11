@@ -1,21 +1,21 @@
 import type { FC } from "react";
-// import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 const BannerOne: FC = () => {
 
-  // const [activeTab, setActiveTab] = useState("Daily");
-  // interface TabItem {
-  //   id: string;
-  //   label: string;
-  //   amount: number;
-  // }
 
-  // const tabs: TabItem[] = [
-  //   { id: "Daily", label: "Daily", amount: 4820 },
-  //   { id: "Weekly", label: "Weekly", amount: 24450 },
-  //   { id: "Monthly", label: "Monthly", amount: 98500 },
-  // ];
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <section className='banner tw-py-100-px overflow-hidden section-bg-three position-relative'>
@@ -54,7 +54,7 @@ const BannerOne: FC = () => {
                 <span className='d-inline-block'>Too.</span>
               </h1>
               <p className='text-white tw-text-lg max-w-500-px fw-medium tw-mt-8 splitTextStyleOne'>
-              Shypbyte transforms international shipping and cross-border ecommerce logistics into a powerful growth engine — helping brands ship from India to customers worldwide without operational complexity.
+              Shyp Byte transforms international shipping and cross-border ecommerce logistics into a powerful growth engine — helping brands ship from India to customers worldwide without operational complexity.
               </p>
               <div className='tw-mt-11 d-flex align-items-center tw-gap-42-px flex-wrap'>
                 <div
@@ -121,27 +121,13 @@ const BannerOne: FC = () => {
                 />
               </div>
               <div className='d-none d-lg-block bg-white tw-rounded-3xl tw-p-6 max-w-218-px position-absolute tw-end-0 top-0 w-100 tw--mt-8-px tw--me-8-px common-shadow-two z-1'>
-                {/* <div className='d-inline-flex align-items-center tw-gap-1 bg-green tw-py-05 tw-px-3 rounded-pill position-absolute top-0 tw-end-0 tw--mt-12-px tw--me-12-px'>
-                  <span className='text-white fw-bold tw-text-sm'>4.9</span>
-                  <span className='text-white d-flex'>
-                    <img
-                      src='/assets/images/icons/star.svg'
-                      alt=''
-                    />
-                  </span>
-                </div> */}
-                {/* <img
-                  src='/assets/images/icons/ratings.svg'
-                  alt=''
-                /> */}
+                
+                
                 <div className='tw-mt-3 d-flex align-items-center justify-content-between max-w-154-px mt-0'>
                   <span className='tw-text-lg text-heading fw-semibold'>
                     Secure & Trusted Shipping Partner
                   </span>
-                  {/* <img
-                    src='/assets/images/icons/verified-icon.svg'
-                    alt=''
-                  /> */}
+                  
                 </div>
               </div>
               <div
@@ -161,47 +147,16 @@ const BannerOne: FC = () => {
                 />
                 <div>
                   <div className='tab-content'>
-                    {/* {tabs.map((tab) => (
-                      <div
-                        key={tab.id}
-                        className={`tab-pane fade ${
-                          activeTab === tab.id ? "show active" : ""
-                        }`}
-                      > */}
+                    
                         <span className='tw-text-sm text-neutral-500 tw-mb-1 text-uppercase'>
                           Automation-Driven Logistics
                         </span>
-                        {/* <h5 className='tw-mb-6 counter'>
-                          {tab.amount >= 1000
-                            ? `${(tab.amount / 1000).toFixed(1)}K`
-                            : tab.amount}
-                          +
-                        </h5> */}
-                      {/* </div>
-                    ))} */}
+                        
+                      
                   </div>
-                  {/* <ul className='nav nav-pills common-tab d-flex align-items-center tw-gap-205'>
-                    {tabs.map((tab) => (
-                      <li className='nav-item' key={tab.id}>
-                        <button
-                          className={`nav-link bg-transparent hover--translate-y-1 tw-transition-all tw-duration-300 text-neutral-500 tw-text-sm fw-medium p-0 ${
-                            activeTab === tab.id ? "active" : ""
-                          }`}
-                          onClick={() => setActiveTab(tab.id)}
-                          type='button'
-                        >
-                          {tab.label}
-                        </button>
-                      </li>
-                    ))}
-                  </ul> */}
+                  
                 </div>
-                {/* <div>
-                  <img
-                    src='/assets/images/revenue-chart.png'
-                    alt=''
-                  />
-                </div> */}
+                
               </div>
             </div>
           </div>

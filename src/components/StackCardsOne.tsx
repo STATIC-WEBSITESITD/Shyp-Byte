@@ -1,48 +1,50 @@
 import type { FC } from "react";
+import { Link } from "react-router-dom";
+import SectionHead from "./SectionHead";
 
-interface StackCard {
-  id: number;
+type OfferCard = {
   number: string;
+  icon: string;
   title: string;
   description: string;
   ctaTo: string;
-  image?: string;
-}
+  image: string;
+};
 
-const stackCardsData: StackCard[] = [
+const offers: OfferCard[] = [
   {
-    id: 0,
     number: "01",
+    icon: "ph-storefront",
     title: "E-Commerce Business",
     description:
-      "Built for online sellers on Shopify, marketplaces, and independent stores. Manage orders, generate labels, and track shipments easily through a single ecommerce shipping platform. Scale your store with tools that integrate with your sales channels.",
+      "Manage orders, labels, and tracking from one platform built for online sellers.",
     ctaTo: "/offer/ecommerce-business",
     image: "/assets/images/ecommerce-business.jpg",
   },
   {
-    id: 1,
     number: "02",
+    icon: "ph-package",
     title: "D2C Brand",
     description:
-      "Ship directly from your warehouse to customers across the world. Shypbyte helps D2C brands simplify international shipping, fulfillment, and delivery so you can focus on growing your brand. Get transparent rates and end-to-end visibility for every order.",
+      "Ship warehouse-to-customer worldwide with clear rates and end-to-end visibility.",
     ctaTo: "/offer/d2c-brand",
     image: "/assets/images/d2c-brand.jpg",
   },
   {
-    id: 2,
     number: "03",
+    icon: "ph-user",
     title: "Individual Customer",
     description:
-      "Sending a package to family or friends abroad? Shypbyte makes international courier services for individuals simple with easy booking, doorstep pickup, and reliable delivery worldwide. No complex paperwork—just book, pack, and we handle the rest.",
+      "Send parcels to family abroad with easy booking and doorstep pickup.",
     ctaTo: "/offer/individual-customer",
     image: "/assets/images/individual-customers.jpg",
   },
   {
-    id: 3,
     number: "04",
+    icon: "ph-buildings",
     title: "B2B Shippers",
     description:
-      "Reliable logistics solutions for exporters, manufacturers, and growing businesses shipping internationally. Shypbyte supports bulk shipments and global supply chains with dependable courier partners. Optimize costs and delivery times with dedicated support.",
+      "Bulk and export logistics with trusted partners and dedicated support.",
     ctaTo: "/offer/b2b-shippers",
     image: "/assets/images/b2b-shippers.jpg",
   },
@@ -50,45 +52,56 @@ const stackCardsData: StackCard[] = [
 
 const StackCardsOne: FC = () => {
   return (
-    <section className='stack-cards py-120 position-relative z-1 section-bg-one'>
+    <section className='solutions-offer py-120 section-flow-white'>
       <div className='container'>
-        <div className='tw-mb-8 text-center'>
-          <span className='tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block'>
-            We Offer
-          </span>
-          <h3 className='splitTextStyleOne fw-light tw-leading-104 text-center max-w-672-px mx-auto tw-mt-3'>
-            <span className='d-inline-block'>Shipping Solutions</span>
-            <span className='d-inline-block'>&nbsp;</span>
-            <span className='d-inline-block'>For Every</span>
-            <span className='d-inline-block'>&nbsp;</span>
-            <span className='d-inline-block fw-semibold text-main-600'>Business</span>
-          </h3>
-        </div>
+        <SectionHead
+          eyebrow='We Offer'
+          title={
+            <>
+              <span className='d-inline-block'>E-Commerce,</span>
+              <span className='d-inline-block'>&nbsp;</span>
+              <span className='d-inline-block'>D2C,</span>
+              <span className='d-inline-block'>&nbsp;</span>
+              <span className='d-inline-block'>Individual</span>
+              <span className='d-inline-block'>&nbsp;</span>
+              <span className='d-inline-block fw-semibold text-main-600'>
+                &amp; B2B Shippers
+              </span>
+            </>
+          }
+          description='Shipping solutions for every business — pick the flow that fits how you ship.'
+        />
 
-        <div className='cards_list'>
-          {stackCardsData.map((card) => (
-            <div key={card.id} className='card_item'>
-              <div className='card_box'>
-                {card.image && (
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className='card_image'
-                  />
-                )}
-                <div className='card_content'>
-                  <div className='card_title'>
-                    <span className='sr_no'>{card.number}</span>
-                    <span className='ttl_name'>{card.title}</span>
-                  </div>
-                  <div className='card_text'>
-                    <p>{card.description}</p>
-                  </div>
+        <div className='row g-4'>
+          {offers.map((offer, index) => (
+            <div
+              key={offer.ctaTo}
+              className='col-md-6 col-xl-3'
+              data-aos='fade-up'
+              data-aos-duration={600 + index * 80}
+            >
+              <Link to={offer.ctaTo} className='solutions-offer__card text-decoration-none d-block h-100'>
+                <div className='solutions-offer__media'>
+                  <img src={offer.image} alt={offer.title} className='solutions-offer__img' />
+                  <div className='solutions-offer__overlay' />
+                  <span className='solutions-offer__num'>{offer.number}</span>
                 </div>
-              </div>
+                <div className='solutions-offer__body'>
+                  <span className='solutions-offer__icon'>
+                    <i className={`ph-bold ${offer.icon}`} />
+                  </span>
+                  <div className='solutions-offer__copy'>
+                    <h4 className='solutions-offer__title'>{offer.title}</h4>
+                    <p className='solutions-offer__desc'>{offer.description}</p>
+                  </div>
+                  <span className='solutions-offer__cta'>
+                    Explore
+                    <i className='ph-bold ph-arrow-right' />
+                  </span>
+                </div>
+              </Link>
             </div>
           ))}
-          <div className='cards_list_spacer' aria-hidden />
         </div>
       </div>
     </section>

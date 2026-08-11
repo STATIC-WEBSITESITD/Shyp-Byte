@@ -1,111 +1,118 @@
-import { useEffect, useRef, type FC } from "react";
-import jsVectorMap from "jsvectormap";
-import "jsvectormap/dist/maps/world";
-import "jsvectormap/dist/jsvectormap.css";
+import type { FC } from "react";
+import SectionHead from "./SectionHead";
 
+const hubs: {
+  id: string;
+  label: string;
+  sub: string;
+  x: number;
+  y: number;
+  hub?: boolean;
+}[] = [
+  { id: "in", label: "India", sub: "Pickup Hub", x: 58, y: 52, hub: true },
+  { id: "ae", label: "UAE", sub: "Middle East", x: 52, y: 42 },
+  { id: "gb", label: "UK", sub: "Europe", x: 42, y: 28 },
+  { id: "us", label: "USA", sub: "Americas", x: 22, y: 38 },
+  { id: "sg", label: "Singapore", sub: "Asia Pacific", x: 68, y: 58 },
+  { id: "au", label: "Australia", sub: "Oceania", x: 78, y: 72 },
+];
 
-const PRIMARY = "#1350d8";
-const PRIMARY_LIGHT = "#e8eefb";
+const routes = [
+  { from: "in", to: "ae" },
+  { from: "in", to: "gb" },
+  { from: "in", to: "us" },
+  { from: "in", to: "sg" },
+  { from: "in", to: "au" },
+] as const;
 
-// const markers: { name: string; coords: [number, number] }[] = [
-//   { name: "Mumbai", coords: [19.076, 72.8777] },
-//   { name: "New York", coords: [40.7128, -74.006] },
-//   { name: "London", coords: [51.5074, -0.1278] },
-//   { name: "Dubai", coords: [25.2048, 55.2708] },
-//   { name: "Singapore", coords: [1.3521, 103.8198] },
-//   { name: "Shanghai", coords: [31.2304, 121.4737] },
-//   { name: "Sydney", coords: [-33.8688, 151.2093] },
-//   { name: "São Paulo", coords: [-23.5505, -46.6333] },
-//   { name: "Tokyo", coords: [35.6762, 139.6503] },
-//   { name: "Johannesburg", coords: [-26.2041, 28.0473] },
-// ];
+const stats = [
+  { value: "220+", label: "Countries" },
+  { value: "Door-to-Door", label: "Pickup → Delivery" },
+  { value: "Live", label: "Shipment Tracking" },
+] as const;
 
 const GlobalMapOne: FC = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<jsVectorMap | null>(null);
-
-  useEffect(() => {
-    if (!mapRef.current) return;
-
-    mapInstance.current = new jsVectorMap({
-      selector: mapRef.current,
-      map: "world",
-      zoomButtons: false,
-      zoomOnScroll: false,
-      draggable: false,
-      showTooltip: true,
-      regionStyle: {
-        initial: {
-          fill: PRIMARY_LIGHT,
-          stroke: "#d0daf0",
-          strokeWidth: 0.5,
-        },
-        hover: {
-          fill: PRIMARY,
-          fillOpacity: 0.35,
-          cursor: "pointer",
-        },
-      },
-      markerStyle: {
-        initial: {
-          r: 6,
-          fill: PRIMARY,
-          stroke: "#fff",
-          strokeWidth: 2,
-        },
-        hover: {
-          fill: PRIMARY,
-          stroke: PRIMARY,
-          r: 8,
-        },
-      },
-      // markers: markers.map((marker) => ({
-      //   ...marker,
-      //   coords: [marker.coords[0], marker.coords[1]],
-      // })),
-      markerLabelStyle: {
-        initial: {
-          fontFamily: "inherit",
-          fontSize: 13,
-          fontWeight: 500,
-          fill: "#333",
-        },
-      },
-    });
-
-    return () => {
-      mapInstance.current?.destroy();
-    };
-  }, []);
+  const point = (id: string) => hubs.find((h) => h.id === id)!;
 
   return (
-    <section className="global-map-one py-120 bg-white">
-      <div className="container">
-        <div className="text-center global-map-one__header tw-mb-16" data-aos="fade-up">
-          <span className="tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block">
-            Global Presence
-          </span>
-          <h3 className="splitTextStyleOne fw-light tw-leading-104 tw-mt-3">
-            <span className="d-inline-block">We Ship&nbsp;</span>
-            <span className="d-inline-block fw-semibold text-main-600">
-              Worldwide
-            </span>
-          </h3>
-          <p className="text-neutral-500 tw-mt-4 mx-auto" style={{ maxWidth: 560 }}>
-            Our logistics network spans across continents, connecting businesses
-            to every major trade hub around the globe.
-          </p>
-        </div>
+    <section className='global-presence py-120 section-flow-white'>
+      <div className='container'>
+        <SectionHead
+          eyebrow='Global Presence'
+          title={
+            <>
+              <span className='d-inline-block'>220+ Countries,</span>
+              <span className='d-inline-block'>&nbsp;</span>
+              <span className='d-inline-block'>Trade Hubs</span>
+              <span className='d-inline-block'>&nbsp;</span>
+              <span className='d-inline-block fw-semibold text-main-600'>
+                &amp; Worldwide Delivery
+              </span>
+            </>
+          }
+          description='From India to every major trade corridor — one network for pickup, customs, and last-mile delivery.'
+        />
+
         <div
-          data-aos="fade-up"
+          className='global-presence__stage'
+          data-aos='fade-up'
           data-aos-duration={800}
-          className="overflow-hidden global-map-one__map-wrap"
         >
-          <div
-            ref={mapRef}
-            className="global-map-one__map"
-            style={{ width: "100%", height: 520 }}
-          />
+          <div className='global-presence__glow' aria-hidden />
+          <div className='global-presence__grid' aria-hidden />
+
+          <svg
+            className='global-presence__svg'
+            viewBox='0 0 100 100'
+            preserveAspectRatio='none'
+            aria-hidden
+          >
+            {routes.map((route) => {
+              const a = point(route.from);
+              const b = point(route.to);
+              const mx = (a.x + b.x) / 2;
+              const my = Math.min(a.y, b.y) - 8;
+              return (
+                <path
+                  key={`${route.from}-${route.to}`}
+                  className='global-presence__route'
+                  d={`M ${a.x} ${a.y} Q ${mx} ${my} ${b.x} ${b.y}`}
+                  fill='none'
+                />
+              );
+            })}
+          </svg>
+
+          {hubs.map((hub) => (
+            <div
+              key={hub.id}
+              className={`global-presence__pin${hub.hub ? " is-hub" : ""}`}
+              style={{ left: `${hub.x}%`, top: `${hub.y}%` }}
+            >
+              <span className='global-presence__pulse' aria-hidden />
+              <span className='global-presence__dot' />
+              <span className='global-presence__label'>
+                <strong>{hub.label}</strong>
+                <small>{hub.sub}</small>
+              </span>
+            </div>
+          ))}
+
+          <div className='global-presence__badge'>
+            <i className='ph-bold ph-airplane-takeoff' />
+            <span>India → World</span>
+          </div>
+        </div>
+
+        <div className='row g-3 tw-mt-8' data-aos='fade-up' data-aos-delay={100}>
+          {stats.map((stat) => (
+            <div key={stat.label} className='col-md-4'>
+              <div className='global-presence__stat'>
+                <span className='global-presence__stat-value'>{stat.value}</span>
+                <span className='global-presence__stat-label'>{stat.label}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

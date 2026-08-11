@@ -92,36 +92,22 @@ const AboutPageOne: FC = () => {
       <section className='py-120'>
         <div className='container'>
           <div className='row gy-5 align-items-center justify-content-center'>
-            {/* <div className='col-lg-6'>
-              <div
-                className='tw-rounded-3xl overflow-hidden h-100 tw-min-h-400-px'
-                data-aos='fade-up'
-                data-aos-duration={800}
-              >
-                <img
-                  src='/assets/images/about.jpg'
-                  alt='Our Story'
-                  className='w-100 h-100 object-fit-cover'
-                />
-              </div>
-            </div> */}
+            
             <div
               className='col-lg-12 d-flex align-items-center text-center'
               data-aos='fade-up'
               data-aos-duration={600}
             >
               <div>
-                {/* <span className='tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block'>
-                  Our Story
-                </span> */}
+                
                 <h3 className='splitTextStyleOne fw-light tw-leading-104 tw-mt-3'>
                   <span className='d-inline-block'>Our</span>
                   <span className='d-inline-block'>&nbsp;</span>
                   <span className='d-inline-block fw-semibold text-main-600'>Story</span>
                 </h3>
                 <p className='text-neutral-500 tw-leading-relaxed tw-mt-6'>
-                  Shypbyte was founded with a simple belief that shipping should never limit growth. By combining modern technology with a reliable global courier network, we make international shipping from India faster, clearer, and easier to manage.
-                  Today, Shypbyte supports ecommerce brands, exporters, businesses, and individuals who want to move products across borders with confidence.
+                  Shyp Byte was founded with a simple belief that shipping should never limit growth. By combining modern technology with a reliable global courier network, we make international shipping from India faster, clearer, and easier to manage.
+                  Today, Shyp Byte supports ecommerce brands, exporters, businesses, and individuals who want to move products across borders with confidence.
                 </p>
               </div>
             </div>
@@ -229,7 +215,7 @@ const AboutPageOne: FC = () => {
               <p className='text-neutral-500 tw-leading-relaxed tw-mt-6'>
                 Everything you need for international shipping success, managed internally by one expert team.
               </p>
-              {/* <img src='/assets/images/about.jpg' alt='Steps of Medical Service' className='w-100 h-100 object-fit-cover' /> */}
+              
               <div className='tw-rounded-3xl overflow-hidden h-100 tw-min-h-400-px mt-4'>
                 <img
                   src='/assets/images/about2.jpg'

@@ -4,6 +4,7 @@ import PageMeta from "./components/PageMeta";
 import RouteScrollToTop from "./helper/RouteScrollToTop";
 import InitializeAOS from "./helper/InitializeAOS";
 import WhatsAppSticky from "./components/WhatsAppSticky";
+import QrDownloadSticky from "./components/QrDownloadSticky";
 
 const HomePageOne = lazy(() => import("./pages/HomePageOne"));
 const AboutPageOne = lazy(() => import("./pages/AboutPageOne"));
@@ -24,7 +25,7 @@ const IndiaToUsaPage = lazy(() => import("./pages/IndiaToUsaPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 function App() {
-  // const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
+
   const [direction] = useState<"ltr" | "rtl">("ltr");
 
   return (
@@ -56,7 +57,8 @@ function App() {
 
         <RouteScrollToTop />
         <WhatsAppSticky />
-        {/* <SettingsPanel direction={direction} setDirection={setDirection} /> */}
+        <QrDownloadSticky />
+        
         <InitializeAOS />
       </BrowserRouter>
     </div>

@@ -81,7 +81,7 @@ const D2CBrandPage: FC = () => {
     <>
       <TopHeaderOne />
       <HeaderOne />
-      {/* Hero */}
+      
       <section
         className='banner tw-py-100-px overflow-hidden position-relative'
         style={{ background: "url(/assets/images/d2c-brand-bg.jpg) no-repeat center/cover" }}

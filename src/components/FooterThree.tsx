@@ -169,7 +169,7 @@ const FooterThree: FC = () => {
                 >
                   <img src='/assets/images/logo/logo-three.png' alt='tech' />
                 </Link>
-                {/* FooterSearchFormThree */}
+                
                 <FooterSearchFormThree />
                 <p className='text-heading fw-semibold tw-mt-9'>
                   By subscribing, you're accept{" "}
@@ -186,9 +186,9 @@ const FooterThree: FC = () => {
           </div>
         </div>
       </div>
-      {/* Footer Bottom */}
+      
       <div className='container'>
-        {/* bottom Footer */}
+        
         <div className='border-top border-neutral-200 border-0 tw-py-8'>
           <div className='container container-two'>
             <div className='d-flex align-items-center justify-content-between tw-gap-4 flex-wrap'>
@@ -232,7 +232,7 @@ const FooterThree: FC = () => {
           </div>
         </div>
       </div>
-      {/* Footer Bottom End */}
+      
     </section>
   );
 };

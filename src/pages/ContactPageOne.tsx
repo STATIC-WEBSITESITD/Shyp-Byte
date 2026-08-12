@@ -53,7 +53,7 @@ const ContactPageOne: FC = () => {
           <div className='tw-rounded-3xl overflow-hidden shadow-lg' data-aos='fade-up' data-aos-duration={600}>
             <iframe
               src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.0635999999997!2d72.8656!3d19.1136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da8ed6f0e0e1e2e!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1731480188813!5m2!1sen!2sin'
-              title='Shypbyte Office Location'
+              title='Shyp Byte Office Location'
               className='w-100'
               height={360}
               style={{ border: 0 }}

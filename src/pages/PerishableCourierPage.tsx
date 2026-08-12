@@ -153,10 +153,12 @@ const PerishableCourierPage: FC = () => {
 
     if (!senderType) {
       setSenderTypeError(true);
+      setIsSubmitting(false);
       return;
     }
     if (!weight) {
       setWeightError(true);
+      setIsSubmitting(false);
       return;
     }
     if (selectedGoods.length === 0) {
@@ -167,22 +169,23 @@ const PerishableCourierPage: FC = () => {
     }
 
     setGoodsError(false);
-    const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
-    formData.append("from_name", "Shyp Byte Perishable Courier Form");
-    formData.append("subject", `New Perishable Enquiry from ${name} | ${senderType}`);
-    formData.append("replyto", email);
-    formData.append("sender_type", senderType);
-    formData.append("shipment_weight", weight);
-    formData.append("goods", selectedGoods.join(", "));
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/perishable", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: formData,
+        body: JSON.stringify({
+          name,
+          email,
+          mobile,
+          company,
+          sender_type: senderType,
+          shipment_weight: weight,
+          goods: selectedGoods.join(", "),
+        }),
       });
 
       const data = await response.json();

@@ -1,7 +1,5 @@
 /// <reference types="vite/client" />
-// types.d.ts (global)
 
-/** Google Tag Manager / GA4 — push conversion events from thank-you pages */
 interface Window {
   dataLayer?: Record<string, unknown>[];
 }

@@ -1,35 +1,56 @@
 import type { FC } from "react";
-import { Link } from "react-router-dom";
+
+const PLAY_STORE =
+  "https://play.google.com/store/apps/details?id=com.shypbyte.customer";
 
 const CtaBannerOne: FC = () => {
   return (
-    <section className='py-120 position-relative z-1 overflow-hidden'>
-      <div
-        className='position-absolute top-0 tw-start-0 w-100 h-100 z-n1'
-        style={{ backgroundImage: 'url(/assets/images/cta.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
-        aria-hidden
-      />
-      <div className='position-absolute top-0 tw-start-0 w-100 h-100 z-n1' style={{ background: 'linear-gradient(180deg, rgba(0, 94, 255, 0.6), rgba(0, 0, 0, 0.8))' }} />
-      <div className='container'>
-        <div className='text-center max-w-672-px mx-auto'>
-          <h3 className='splitTextStyleOne fw-light tw-leading-104 text-white'>
-            <span className='d-inline-block'>Ready for</span>
-            <span className='d-inline-block'>&nbsp;</span>
-            <span className='d-inline-block fw-semibold'>Better Shipping?</span>
-          </h3>
-          <p className='text-white tw-mt-6 tw-text-lg fw-medium mx-auto'>
-            Experience international shipping the way it should be — simple,
-            reliable, and scalable. Join the Shyp Byte revolution today.
-          </p>
-          <div className='tw-mt-10'>
-            <Link
-              to='/contact'
-              className='hover-black hover--translate-y-1 active--translate-y-scale-9 btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-56-px tw-py-5 fw-semibold rounded-pill'
-              data-block='button'
+    <section className='download-app'>
+      <div className='cta-band tw-py-100-px tw-mx-48-px position-relative z-1 overflow-hidden'>
+        <div className='container position-relative z-1'>
+          <div className='text-center mx-auto' style={{ maxWidth: "820px" }}>
+            <div
+              className='cta-band__eyebrow mx-auto'
+              data-aos='fade-up'
+              data-aos-anchor-placement='top-bottom'
+              data-aos-duration={600}
             >
-              <span className='button__flair' />
-              <span className='button__label'>Get Started Free</span>
-            </Link>
+              Mobile First
+            </div>
+            <h2
+              className='splitTextStyleOne text-white tw-leading-none'
+              data-aos='fade-up'
+              data-aos-duration={700}
+            >
+              Shyp Byte Is Built Mobile-First — Get the Full Experience
+            </h2>
+            <p
+              className='text-white tw-text-xl tw-mt-605 splitTextStyleOne fw-medium tw-leading-145 mx-auto mb-0'
+              style={{ opacity: 0.82, maxWidth: "640px" }}
+              data-aos='fade-up'
+              data-aos-duration={800}
+            >
+              Book shipments, track parcels, manage your profile, and get
+              support — all from your pocket.
+            </p>
+            <div
+              className='tw-mt-10'
+              data-aos='fade-up'
+              data-aos-anchor-placement='top-bottom'
+              data-aos-duration={900}
+            >
+              <a
+                href={PLAY_STORE}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='hover--translate-y-1 active--translate-y-scale-9 tw-rounded-2xl common-shadow-twentyEight d-inline-block'
+              >
+                <img
+                  src='/assets/images/icons/store-two2.png'
+                  alt='Get it on Google Play'
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

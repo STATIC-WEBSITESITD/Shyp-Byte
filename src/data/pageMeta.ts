@@ -91,9 +91,9 @@ export const pageMeta: Record<string, PageMetaConfig> = {
   "/privacy-policy": {
     title: "Privacy Policy | Shyp Byte",
     description:
-      "ShypByte privacy policy. How we collect, use and protect your information on www.shypbyte.com. We never share or sell your data.",
+      "Shyp Byte privacy policy. How we collect, use and protect your information on www.shypbyte.com. We never share or sell your data.",
     keywords:
-      "privacy policy, Shyp Byte, data protection, cookie policy, ShypByte Logistics",
+      "privacy policy, Shyp Byte, data protection, cookie policy, Shyp Byte Logistics",
     canonical: BASE_URL + "/privacy-policy",
   },
   "/shipping-policy": {

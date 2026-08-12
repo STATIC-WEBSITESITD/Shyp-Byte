@@ -113,19 +113,22 @@ const IndiaToUsaPage: FC = () => {
     setIsSubmitting(true);
 
     const formElement = e.currentTarget;
-    const formData = new FormData(formElement);
-    formData.append("access_key", "e67d4197-8433-4b71-a58a-c0815c626d7f");
-    formData.append("from_name", "Shyp Byte India to USA Quote");
-    formData.append("subject", `India to USA Quote — ${name}`);
-    formData.append("replyto", email);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/india-to-usa", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: formData,
+        body: JSON.stringify({
+          name,
+          email,
+          mobile,
+          city,
+          parcel_weight: parcelWeight,
+          message,
+        }),
       });
 
       const data = await response.json();
@@ -183,10 +186,10 @@ const IndiaToUsaPage: FC = () => {
                 Door Pickup | Express Delivery | Live Tracking | Customs Support
               </p>
               <a
-                href='tel:+917304617614'
+                href='tel:+917208832472'
                 className='tw-mt-5 hover-black hover--translate-y-1 active--translate-y-scale-9 btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-56-px tw-py-5 fw-semibold rounded-pill border-0 text-decoration-none'
                 data-block='button'
-                aria-label='Call +91 7304617614 to book your USA courier'
+                aria-label='Call +91 7208832472 to book your USA courier'
               >
                 <span className='button__flair' />
                 <span className='button__label'>Book Your USA Courier</span>
@@ -473,7 +476,7 @@ const IndiaToUsaPage: FC = () => {
             </p>
             <div className='tw-mt-10 position-relative z-1'>
               <a
-                href='tel:7304617614'
+                href='tel:7208832472'
                 className='hover-black hover--translate-y-1 active--translate-y-scale-9 btn btn-main hover-style-one button--stroke d-inline-flex align-items-center justify-content-center tw-gap-5 group active--translate-y-2 tw-px-56-px tw-py-5 fw-semibold rounded-pill border-0 text-decoration-none'
                 data-block='button'
               >

@@ -6,7 +6,6 @@ export type SelectOption = {
   label: string;
 };
 
-// Sample options data (can be replaced by callers).
 export const sampleOptions: SelectOption[] = [
   { value: "fruits-veg", label: "Fruits & vegetables" },
   { value: "seafood", label: "Seafood / fish" },

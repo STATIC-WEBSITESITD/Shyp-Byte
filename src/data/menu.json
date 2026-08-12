@@ -12,12 +12,5 @@
   },
   { "label": "Tracking", "to": "/tracking" },
   { "label": "Blogs", "to": "/blogs" },
-  { "label": "Contact Us", "to": "/contact" },
-  {
-    "label": "Log In",
-    "children": [
-      { "label": "Admin Login", "to": "https://admin.shypbyte.com/" },
-      { "label": "Customer Login", "to": "https://online.shypbyte.com/" }
-    ]
-  }
+  { "label": "Contact Us", "to": "/contact" }
 ]

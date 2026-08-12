@@ -174,20 +174,7 @@ const ECommerceBusinessPage: FC = () => {
           </div>
         </div>
       </section>
-      {/* <section className='py-120'>
-        <div className='container'>
-          <div className='row gy-4 justify-content-center'>
-            <div className='col-lg-8 text-center'>
-              <span className='tw-py-1 tw-px-705 bg-main-50 text-main-600 tw-text-sm fw-bold text-capitalize rounded-pill tw-mb-205 d-inline-block'>
-                Why Choose Shyp Byte
-              </span>
-              <p className='text-neutral-500 tw-leading-relaxed tw-text-lg mb-0'>
-                Shyp Byte is a complete international courier for ecommerce businesses. With fast delivery, reliable handling, customer support, and global logistics, marketplace sellers can scale smoothly worldwide.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      
       <section className='py-120'>
         <div className='container'>
           <div className='text-center tw-mb-8'>

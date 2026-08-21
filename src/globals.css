@@ -1244,7 +1244,7 @@
 
 .global-presence__stage {
   position: relative;
-  min-height: 420px;
+  min-height: 560px;
   border-radius: var(--sb-radius-xl);
   overflow: hidden;
   background: linear-gradient(160deg, #071833 0%, #0b2f7a 45%, #005eff 100%);
@@ -1281,6 +1281,18 @@
   z-index: 1;
 }
 
+.global-presence__svg--auras {
+  z-index: 0;
+}
+
+.global-presence__aura {
+  fill: rgba(125, 211, 252, 0.16);
+}
+
+.global-presence__aura.is-hub {
+  fill: rgba(255, 209, 102, 0.14);
+}
+
 .global-presence__route {
   stroke: rgba(255, 255, 255, 0.45);
   stroke-width: 0.35;
@@ -1288,7 +1300,15 @@
   animation: gp-route 10s linear infinite;
 }
 
+.global-presence__route--cluster {
+  stroke: rgba(125, 211, 252, 0.55);
+  stroke-width: 0.22;
+  stroke-dasharray: 0.6 0.9;
+  animation-duration: 7s;
+}
+
 .global-presence__pin {
+  --gp-delay: 0s;
   position: absolute;
   z-index: 2;
   transform: translate(-50%, -50%);
@@ -1298,12 +1318,18 @@
   gap: 0.35rem;
 }
 
+.global-presence__pin.is-hub {
+  z-index: 4;
+}
+
 .global-presence__dot {
-  width: 12px;
-  height: 12px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+  background: #7dd3fc;
+  box-shadow:
+    0 0 0 3px rgba(125, 211, 252, 0.28),
+    0 0 14px rgba(125, 211, 252, 0.7);
   position: relative;
   z-index: 1;
 }
@@ -1312,48 +1338,111 @@
   width: 16px;
   height: 16px;
   background: #ffd166;
-  box-shadow: 0 0 0 5px rgba(255, 209, 102, 0.28);
+  box-shadow:
+    0 0 0 5px rgba(255, 209, 102, 0.28),
+    0 0 24px rgba(255, 209, 102, 0.55);
+}
+
+.global-presence__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  border: 1px solid rgba(125, 211, 252, 0.45);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.global-presence__pin.is-hub .global-presence__ring {
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-color: rgba(255, 209, 102, 0.4);
 }
 
 .global-presence__pulse {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  width: 28px;
-  height: 28px;
-  margin-left: -14px;
-  margin-top: -8px;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  animation: gp-pulse 2.4s ease-out infinite;
+  border: 1px solid rgba(125, 211, 252, 0.55);
+  animation: gp-pulse 2s ease-out infinite;
+  animation-delay: var(--gp-delay);
   pointer-events: none;
 }
 
 .global-presence__pin.is-hub .global-presence__pulse {
   width: 36px;
   height: 36px;
-  margin-left: -18px;
-  margin-top: -10px;
+  margin: -18px 0 0 -18px;
   border-color: rgba(255, 209, 102, 0.55);
+  animation-duration: 2.4s;
 }
 
 .global-presence__label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.35rem 0.65rem;
+  padding: 0.22rem 0.5rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(7, 24, 51, 0.55);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   color: #fff;
   white-space: nowrap;
+  position: absolute;
+  pointer-events: none;
+}
+
+.global-presence__pin.is-hub .global-presence__label {
+  padding: 0.35rem 0.65rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.global-presence__pin.label-bottom .global-presence__label {
+  top: calc(100% + 0.65rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.global-presence__pin.label-top .global-presence__label {
+  bottom: calc(100% + 0.65rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.global-presence__pin.label-left .global-presence__label {
+  right: calc(100% + 0.7rem);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.global-presence__pin.label-right .global-presence__label {
+  left: calc(100% + 0.7rem);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .global-presence__label strong {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.global-presence__pin.is-hub .global-presence__label strong {
   font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: normal;
 }
 
 .global-presence__label small {
@@ -1366,7 +1455,7 @@
   position: absolute;
   left: 1.25rem;
   bottom: 1.25rem;
-  z-index: 3;
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -1421,9 +1510,15 @@
   }
 }
 
+@media (max-width: 991.98px) {
+  .global-presence__stage {
+    min-height: 500px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .global-presence__stage {
-    min-height: 360px;
+    min-height: 440px;
   }
 
   .global-presence__label small {

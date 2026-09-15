@@ -1,6 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { pageMeta } from "../data/pageMeta";
+import { getBlogBySlug } from "../data/blogs";
+
+const BASE_URL = "https://shypbyte.com";
 
 const defaultMeta = {
   title: "Best International Courier Service in Mumbai | Shyp Byte",
@@ -13,7 +16,16 @@ const defaultMeta = {
 
 const PageMeta: React.FC = () => {
   const { pathname } = useLocation();
-  const meta = pageMeta[pathname] || defaultMeta;
+  const blogMatch = pathname.match(/^\/blogs\/(.+)$/);
+  const blog = blogMatch ? getBlogBySlug(blogMatch[1]) : undefined;
+  const meta = blog
+    ? {
+        title: `${blog.title} | Shyp Byte`,
+        description: blog.excerpt.replace(/\.\.\.$/, "."),
+        keywords: [...blog.tags, "Shyp Byte", "international courier"].join(", "),
+        canonical: `${BASE_URL}/blogs/${blog.slug}`,
+      }
+    : pageMeta[pathname] || defaultMeta;
 
   return (
     <Helmet>

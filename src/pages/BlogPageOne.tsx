@@ -5,11 +5,9 @@ import TopHeaderOne from "../components/TopHeaderOne";
 import HeaderOne from "../components/HeaderOne";
 import CtaBannerOne from "../components/CtaBannerOne";
 import FooterOne from "../components/FooterOne";
-import blogsData from "../data/blogs.json";
-import type { BlogItem } from "../types/blog";
+import { blogs } from "../data/blogs";
 
 const BlogPageOne: FC = () => {
-  const blogs = blogsData as BlogItem[];
 
   return (
     <>
@@ -36,7 +34,7 @@ const BlogPageOne: FC = () => {
                   <span className='d-inline-block'>Blog</span>
                 </h1>
                 <p className='text-white tw-text-lg fw-medium tw-mt-4 splitTextStyleOne tw-opacity-90'>
-                  Insights on shipping, logistics, and global trade
+                  Diwali shipping guides and international courier tips from Mumbai
                 </p>
                 <nav className='tw-mt-4 tw-text-sm text-white' aria-label='Breadcrumb'>
                   <Link to='/' className='text-white text-decoration-none hover-underline'>
@@ -53,16 +51,13 @@ const BlogPageOne: FC = () => {
       <section className='py-120 section-bg-one'>
         <div className='container'>
           <div className='row gy-5'>
-            {blogs.map((item, index) => (
+            {blogs.map((item) => (
               <div
                 key={item.id}
                 className='col-lg-4 col-md-6'
-                data-aos='fade-up'
-                data-aos-duration={600}
-                data-aos-delay={index * 100}
               >
                 <article className='bg-white tw-rounded-2xl overflow-hidden shadow-sm h-100 d-flex flex-column'>
-                  <Link to='/blogs' className='overflow-hidden'>
+                  <Link to={`/blogs/${item.slug}`} className='overflow-hidden'>
                     <img
                       src={item.img}
                       alt={item.title}
@@ -83,7 +78,7 @@ const BlogPageOne: FC = () => {
                     </div>
                     <h5 className='tw-mb-3'>
                       <Link
-                        to='/blogs'
+                        to={`/blogs/${item.slug}`}
                         className='text-heading hover-text-main-600 splitTextStyleOne fw-semibold tw-line-clamp-2'
                       >
                         {item.title}
@@ -103,7 +98,7 @@ const BlogPageOne: FC = () => {
                       ))}
                     </div>
                     <Link
-                      to='/blogs'
+                      to={`/blogs/${item.slug}`}
                       className='text-main-600 fw-semibold tw-text-sm d-inline-flex align-items-center tw-gap-2 hover-text-main-700'
                     >
                       Read More

@@ -9,6 +9,7 @@ import QrDownloadSticky from "./components/QrDownloadSticky";
 const HomePageOne = lazy(() => import("./pages/HomePageOne"));
 const AboutPageOne = lazy(() => import("./pages/AboutPageOne"));
 const BlogPageOne = lazy(() => import("./pages/BlogPageOne"));
+const BlogDetailsPage = lazy(() => import("./pages/BlogDetailsPage"));
 const ContactPageOne = lazy(() => import("./pages/ContactPageOne"));
 const B2BShippersPage = lazy(() => import("./pages/B2BShippersPage"));
 const PerishableCourierPage = lazy(() => import("./pages/PerishableCourierPage"));
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' element={<HomePageOne />} />
           <Route path='/about' element={<AboutPageOne />} />
           <Route path='/blogs' element={<BlogPageOne />} />
+          <Route path='/blogs/:slug' element={<BlogDetailsPage />} />
           <Route path='/contact' element={<ContactPageOne />} />
           <Route path='/tracking' element={<TrackPageOne />} />
           <Route path='/offer' element={<Navigate to='/offer/ecommerce-business' replace />} />

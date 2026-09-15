@@ -73,11 +73,11 @@ export const pageMeta: Record<string, PageMetaConfig> = {
     canonical: BASE_URL + "/offer/perishable-courier",
   },
   "/blogs": {
-    title: "Blog | Shipping & Logistics Insights | Shyp Byte",
+    title: "Blog | Diwali Shipping & International Courier Guides | Shyp Byte",
     description:
-      "Explore insights on international shipping, supply chain optimization, e-commerce shipping, customs regulations, and logistics trends.",
+      "Read the latest Shyp Byte guides on sending Diwali gifts from Mumbai to the USA, UK, UAE, Canada and Australia, plus international courier pickup from Virar, Vasai, Mira Road and more.",
     keywords:
-      "shipping blog, logistics blog, international shipping tips, supply chain, e-commerce shipping",
+      "Diwali courier, send gifts from Mumbai, international shipping blog, courier from Virar Vasai Mira Road, Shyp Byte",
     canonical: BASE_URL + "/blogs",
   },
   "/contact": {

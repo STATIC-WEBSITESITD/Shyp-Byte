@@ -75,9 +75,9 @@ export const pageMeta: Record<string, PageMetaConfig> = {
   "/blogs": {
     title: "Blog | Diwali Shipping & International Courier Guides | Shyp Byte",
     description:
-      "Read the latest Shyp Byte guides on sending Diwali gifts from Mumbai to the USA, UK, UAE, Canada and Australia, plus international courier pickup from Virar, Vasai, Mira Road and more.",
+      "Read the latest Shyp Byte guides on Diwali gift shipping, sweets abroad, business orders, and international courier pickup from Andheri, Borivali, Kandivali, Malad, Goregaon, Virar and more.",
     keywords:
-      "Diwali courier, send gifts from Mumbai, international shipping blog, courier from Virar Vasai Mira Road, Shyp Byte",
+      "Diwali courier, send gifts from Mumbai, international shipping blog, courier from Andheri Borivali Kandivali, Shyp Byte",
     canonical: BASE_URL + "/blogs",
   },
   "/contact": {

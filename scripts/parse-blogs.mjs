@@ -4,13 +4,81 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const mdPath = path.join(
-  root,
-  "public",
-  "How to Send Diwali Gifts from India to USA_ Complete Courier Guide.md"
-);
+const mdPath = path.join(root, "public", "shypbyte blogs.md");
 
 const META = [
+  {
+    match: /Diwali Courier Guide 2026/,
+    slug: "diwali-courier-guide-2026",
+    tags: ["Diwali", "2026", "International"],
+    date: "18/09/2026",
+    cover: "Diwali 2026 Guide",
+    subtitle: "Gifts, parcels & orders",
+  },
+  {
+    match: /International Courier from Andheri/,
+    slug: "international-courier-from-andheri",
+    tags: ["Andheri", "Doorstep Pickup", "International"],
+    date: "18/09/2026",
+    cover: "Courier from Andheri",
+    subtitle: "Doorstep to worldwide",
+  },
+  {
+    match: /Diwali Shipping for Indian Businesses/,
+    slug: "diwali-shipping-for-indian-businesses",
+    tags: ["Diwali", "Business", "E-commerce"],
+    date: "17/09/2026",
+    cover: "Diwali Business Shipping",
+    subtitle: "Orders to customers abroad",
+  },
+  {
+    match: /Sending Diwali Sweets Abroad/,
+    slug: "sending-diwali-sweets-abroad",
+    tags: ["Diwali", "Sweets", "Food Shipping"],
+    date: "17/09/2026",
+    cover: "Diwali Sweets Abroad",
+    subtitle: "What to know before shipping",
+  },
+  {
+    match: /Diwali Gift Shipping from India/,
+    slug: "diwali-gift-shipping-from-india",
+    tags: ["Diwali", "Packing", "Customs"],
+    date: "16/09/2026",
+    cover: "Diwali Gift Shipping",
+    subtitle: "Packing, docs & customs",
+  },
+  {
+    match: /International Courier from Goregaon/,
+    slug: "international-courier-from-goregaon",
+    tags: ["Goregaon", "International Courier", "220+ Countries"],
+    date: "16/09/2026",
+    cover: "Courier from Goregaon",
+    subtitle: "Ship to 220+ countries",
+  },
+  {
+    match: /International Courier from Malad/,
+    slug: "international-courier-from-malad",
+    tags: ["Malad", "Business", "Personal"],
+    date: "16/09/2026",
+    cover: "Courier from Malad",
+    subtitle: "Business & personal shipping",
+  },
+  {
+    match: /International Courier from Kandivali/,
+    slug: "international-courier-from-kandivali",
+    tags: ["Kandivali", "Documents", "Parcels"],
+    date: "16/09/2026",
+    cover: "Courier from Kandivali",
+    subtitle: "Documents & parcels abroad",
+  },
+  {
+    match: /International Courier from Borivali/,
+    slug: "international-courier-from-borivali",
+    tags: ["Borivali", "Doorstep Pickup", "International"],
+    date: "16/09/2026",
+    cover: "Courier from Borivali",
+    subtitle: "How doorstep pickup works",
+  },
   {
     match: /Mumbai to USA: Complete Courier Guide/,
     slug: "how-to-send-diwali-gifts-from-mumbai-to-usa",
@@ -113,6 +181,15 @@ const PALETTES = [
   ["#3d1428", "#c42a6b"],
   ["#14283d", "#0c848d"],
   ["#2e2414", "#8a6b3d"],
+  ["#1a3040", "#2a8a9c"],
+  ["#2a1840", "#6b3d9a"],
+  ["#18402a", "#3d9a6b"],
+  ["#402818", "#9a6b3d"],
+  ["#183040", "#3d6b9a"],
+  ["#401828", "#9a3d6b"],
+  ["#284018", "#6b9a3d"],
+  ["#301840", "#7a3d9a"],
+  ["#184038", "#3d9a8a"],
 ];
 
 function unescapeMd(s) {
@@ -123,14 +200,36 @@ function stripHeadingMarks(s) {
   return unescapeMd(s.replace(/^\*+|\*+$/g, "").replace(/\*\*/g, "").trim());
 }
 
-function parseBlocks(raw) {
-  const lines = raw
-    .split(/\r?\n/)
-    .map((l) => l.replace(/\s+$/, ""))
-    .filter((l, i, arr) => !(l.startsWith("# ") && (i === 0 || arr.slice(i).every((x) => !x || x.startsWith("# ")))));
+/** Fix Google Docs export quirks: stray `# ` prefixes on body/list lines. */
+function normalizeLine(line) {
+  let s = line.replace(/\s+$/, "");
+  if (/^\*\s+#\s+/.test(s)) {
+    s = s.replace(/^\*\s+#\s+/, "* ");
+  }
+  // `# **Title**` that is NOT a real article title → treat as body text
+  const h1Bold = s.match(/^#\s+\*\*(.+)\*\*\s*$/);
+  if (h1Bold) {
+    const maybeTitle = stripHeadingMarks(h1Bold[1]);
+    const isArticle = META.some((item) => item.match.test(maybeTitle));
+    if (!isArticle) {
+      s = s.replace(/^#\s+/, "");
+    }
+  } else if (/^#\s+/.test(s) && !/^##/.test(s)) {
+    s = s.replace(/^#\s+/, "");
+  }
+  return s;
+}
 
-  while (lines.length && (lines[0] === "" || lines[0].startsWith("# "))) lines.shift();
-  while (lines.length && (lines[lines.length - 1] === "" || lines[lines.length - 1].startsWith("# "))) {
+function parseBlocks(raw) {
+  const lines = raw.split(/\r?\n/).map(normalizeLine);
+
+  while (lines.length && (lines[0] === "" || /^#\s+\*\*/.test(lines[0]))) lines.shift();
+  while (
+    lines.length &&
+    (lines[lines.length - 1] === "" ||
+      /^#\s+\*\*/.test(lines[lines.length - 1]) ||
+      /^#\s*Tab\s+\d+/i.test(lines[lines.length - 1]))
+  ) {
     lines.pop();
   }
 
@@ -153,7 +252,8 @@ function parseBlocks(raw) {
       continue;
     }
 
-    if (line.startsWith("# ")) {
+    // Skip truncated tab titles / stray H1 leftovers
+    if (/^#\s+/.test(line) && !/^##/.test(line)) {
       i += 1;
       continue;
     }
@@ -223,8 +323,10 @@ function wordCount(blocks) {
 function makeSvg(index, cover, subtitle) {
   const [from, to] = PALETTES[index % PALETTES.length];
   const id = `g${index}`;
+  const escapeXml = (s) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="${cover}">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="${escapeXml(cover)}">
   <defs>
     <linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${from}"/>
@@ -237,43 +339,52 @@ function makeSvg(index, cover, subtitle) {
   <rect x="64" y="64" width="88" height="72" rx="10" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="4"/>
   <path d="M64 88h88M108 64v72" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="4"/>
   <text x="64" y="430" fill="rgba(255,255,255,0.7)" font-family="Georgia, serif" font-size="22" letter-spacing="3">SHYP BYTE</text>
-  <text x="64" y="500" fill="#ffffff" font-family="Georgia, serif" font-size="48" font-weight="700">${cover}</text>
-  <text x="64" y="548" fill="rgba(255,255,255,0.85)" font-family="Arial, sans-serif" font-size="24">${subtitle}</text>
+  <text x="64" y="500" fill="#ffffff" font-family="Georgia, serif" font-size="48" font-weight="700">${escapeXml(cover)}</text>
+  <text x="64" y="548" fill="rgba(255,255,255,0.85)" font-family="Arial, sans-serif" font-size="24">${escapeXml(subtitle)}</text>
 </svg>
 `;
 }
 
 const md = fs.readFileSync(mdPath, "utf8");
 const titleRe = /^# \*\*(.+)\*\*\s*$/gm;
-const titles = [];
+const found = [];
 let m;
 while ((m = titleRe.exec(md)) !== null) {
-  titles.push({ title: stripHeadingMarks(m[1]), index: m.index, end: m.index + m[0].length });
+  const title = stripHeadingMarks(m[1]);
+  const meta = META.find((item) => item.match.test(title));
+  if (!meta) continue; // skip process-step lines wrongly marked as H1
+  found.push({ title, meta, index: m.index, end: m.index + m[0].length });
 }
 
-const blogs = titles.map((t, i) => {
-  const bodyStart = t.end;
-  const bodyEnd = i + 1 < titles.length ? titles[i + 1].index : md.length;
-  const raw = md.slice(bodyStart, bodyEnd);
-  const meta = META.find((item) => item.match.test(t.title));
-  if (!meta) {
-    throw new Error(`No meta for title: ${t.title}`);
-  }
+// Keep META display order (latest first), not raw MD order
+const bySlug = new Map(found.map((f) => [f.meta.slug, f]));
+const ordered = META.map((meta) => {
+  const hit = bySlug.get(meta.slug);
+  if (!hit) throw new Error(`Missing article in markdown for: ${meta.slug}`);
+  return hit;
+});
+
+const blogs = ordered.map((t, i) => {
+  const nextInMd = found
+    .filter((f) => f.index > t.index)
+    .sort((a, b) => a.index - b.index)[0];
+  const bodyEnd = nextInMd ? nextInMd.index : md.length;
+  const raw = md.slice(t.end, bodyEnd);
   const blocks = parseBlocks(raw);
   const words = wordCount(blocks);
   const minutes = Math.max(4, Math.round(words / 200));
-  const img = `/assets/images/blogs/${meta.slug}.svg`;
+  const img = `/assets/images/blogs/${t.meta.slug}.svg`;
   return {
     id: i + 1,
-    slug: meta.slug,
+    slug: t.meta.slug,
     author: "Shyp Byte Team",
-    date: meta.date,
+    date: t.meta.date,
     readTime: `${minutes} min read`,
     title: t.title,
     excerpt: excerptFromBlocks(blocks),
-    tags: meta.tags,
+    tags: t.meta.tags,
     img,
-    cover: meta.cover,
+    cover: t.meta.cover,
     content: blocks,
   };
 });
